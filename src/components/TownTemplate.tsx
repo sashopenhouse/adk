@@ -3,9 +3,10 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { TextPlugin } from 'gsap/TextPlugin';
 import Link from 'next/link';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 interface SuccessStory {
   title: string;
@@ -50,35 +51,79 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Hero animations
+      // Enhanced hero animations with parallax
       gsap.fromTo(heroRef.current,
-        { opacity: 0, scale: 1.05 },
-        { opacity: 1, scale: 1, duration: 1.5, ease: "power2.out" }
+        { opacity: 0, scale: 1.1 },
+        { opacity: 1, scale: 1, duration: 2, ease: "power2.out" }
       );
 
-      gsap.fromTo(".town-hero-title", 
-        { y: 80, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1.2, delay: 0.2, ease: "power2.out" }
+      // Parallax hero background
+      gsap.to('.town-hero-bg', {
+        yPercent: -30,
+        ease: "none",
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+
+      // Split text animation for town title
+      const titleText = document.querySelector('.town-hero-title')?.textContent || '';
+      const titleChars = titleText.split('').map((char, index) => 
+        `<span class="town-title-char inline-block" style="transform-origin: 50% 50% -30px;">${char === ' ' ? '&nbsp;' : char}</span>`
+      ).join('');
+      
+      if (document.querySelector('.town-hero-title')) {
+        document.querySelector('.town-hero-title')!.innerHTML = titleChars;
+      }
+
+      gsap.fromTo(".town-title-char", 
+        { y: 100, opacity: 0, rotationX: -90 },
+        { 
+          y: 0, 
+          opacity: 1, 
+          rotationX: 0,
+          duration: 0.8,
+          delay: 0.2,
+          stagger: 0.04,
+          ease: "back.out(1.7)"
+        }
       );
 
+      // Enhanced tagline animation
       gsap.fromTo(".town-hero-tagline", 
-        { y: 60, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, delay: 0.5, ease: "power2.out" }
+        { y: 60, opacity: 0, scale: 0.8 },
+        { y: 0, opacity: 1, scale: 1, duration: 1, delay: 0.8, ease: "back.out(1.7)" }
       );
 
+      // Floating back link
       gsap.fromTo(".back-link", 
-        { x: -30, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.8, delay: 0.3, ease: "power2.out" }
+        { x: -50, opacity: 0 },
+        { x: 0, opacity: 1, duration: 1, delay: 0.3, ease: "elastic.out(1, 0.8)" }
       );
 
-      // Content section animations
+      // Floating logo animation
+      gsap.to('.floating-town-logo', {
+        y: -8,
+        rotation: 2,
+        duration: 3,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+
+      // Enhanced content animations with stagger
       gsap.fromTo(".content-highlight", 
-        { y: 60, opacity: 0 },
+        { y: 80, opacity: 0, scale: 0.95, rotationY: -15 },
         {
           y: 0,
           opacity: 1,
+          scale: 1,
+          rotationY: 0,
           duration: 0.8,
-          stagger: 0.2,
+          stagger: 0.15,
           ease: "power2.out",
           scrollTrigger: {
             trigger: contentRef.current,
@@ -87,15 +132,16 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
         }
       );
 
-      // Success cards stagger animation
+      // Enhanced success cards with 3D effects
       gsap.fromTo(".success-card", 
-        { y: 80, opacity: 0, scale: 0.95 },
+        { y: 100, opacity: 0, scale: 0.8, rotationX: -20 },
         {
           y: 0,
           opacity: 1,
           scale: 1,
-          duration: 0.8,
-          stagger: 0.15,
+          rotationX: 0,
+          duration: 1,
+          stagger: 0.2,
           ease: "power2.out",
           scrollTrigger: {
             trigger: storiesRef.current,
@@ -103,6 +149,34 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
           }
         }
       );
+
+      // Floating icons in testimonials
+      gsap.to('.floating-testimonial-icon', {
+        y: -10,
+        rotation: 360,
+        duration: 4,
+        repeat: -1,
+        ease: "none"
+      });
+
+      // Bubble animations for speech bubbles
+      document.querySelectorAll('.speech-bubble').forEach((bubble, index) => {
+        gsap.fromTo(bubble, 
+          { scale: 0, rotation: -10 },
+          {
+            scale: 1,
+            rotation: 0,
+            duration: 0.8,
+            delay: index * 0.1,
+            ease: "back.out(1.7)",
+            scrollTrigger: {
+              trigger: bubble,
+              start: "top 90%"
+            }
+          }
+        );
+      });
+
     }, [heroRef, contentRef, storiesRef]);
 
     return () => ctx.revert();
@@ -117,7 +191,7 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
             <img 
               src="/images/ny-sash-logo.png" 
               alt="New York Sash" 
-              className="h-12 w-auto drop-shadow-lg"
+              className="floating-town-logo h-12 w-auto drop-shadow-lg"
             />
           </Link>
           <Link 
@@ -132,7 +206,7 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
       {/* Hero Section */}
       <section 
         ref={heroRef}
-        className="relative h-screen flex items-center justify-center overflow-hidden"
+        className="town-hero-bg relative h-screen flex items-center justify-center overflow-hidden"
         style={{
           backgroundImage: `url(${townData.heroImage})`,
           backgroundSize: 'cover',
@@ -213,11 +287,11 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
               {townData.successStories.map((story, index) => (
-                <div key={index} className="success-card bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-all duration-300">
+                <div key={index} className="success-card bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-all duration-300" style={{ perspective: '1000px' }}>
                   {/* Icon header */}
                   <div className="flex items-center mb-6">
                     <div className="w-12 h-12 bg-warm-tan/10 rounded-full flex items-center justify-center mr-4">
-                      <span className="text-2xl text-warm-tan" style={{ lineHeight: 1 }}>★</span>
+                      <span className="floating-testimonial-icon text-2xl text-warm-tan" style={{ lineHeight: 1 }}>★</span>
                     </div>
                     <div className="flex-1">
                       <h3 className="heading-primary text-2xl text-charcoal mb-1">
@@ -237,10 +311,10 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
                     {story.description}
                   </p>
                   
-                  {/* Speech bubble style quote */}
-                  <div className="relative bg-oatmeal p-6 rounded-2xl">
-                    {/* Speech bubble tail */}
-                    <div className="absolute -top-2 left-6 w-4 h-4 bg-oatmeal transform rotate-45"></div>
+                  {/* Enhanced speech bubble style quote */}
+                  <div className="speech-bubble relative bg-oatmeal p-6 rounded-2xl">
+                    {/* Speech bubble tail with glow */}
+                    <div className="absolute -top-2 left-6 w-4 h-4 bg-oatmeal transform rotate-45 shadow-lg"></div>
                     <div className="relative">
                       <div className="text-3xl text-warm-tan/30 absolute -top-2 -left-2" style={{ lineHeight: 1 }}>"</div>
                       <p className="body-serif text-charcoal font-medium italic pl-4">

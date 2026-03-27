@@ -3,34 +3,78 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { TextPlugin } from 'gsap/TextPlugin';
 import Link from 'next/link';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 export default function AdirondackPage() {
   const heroRef = useRef<HTMLDivElement>(null);
   const townGridRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const paralRefsRef = useRef<HTMLDivElement>(null);
+  const numberRefs = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Hero animation
+      // Enhanced hero animation with parallax
       gsap.fromTo(heroRef.current, 
         { opacity: 0, scale: 1.1 },
         { opacity: 1, scale: 1, duration: 2, ease: "power2.out" }
       );
 
-      gsap.fromTo(".hero-title", 
-        { y: 60, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1.2, delay: 0.3, ease: "power2.out" }
+      // Parallax background on scroll
+      gsap.to('.adk-hero-bg', {
+        yPercent: -50,
+        ease: "none",
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+
+      // Split text animation for title
+      const titleChars = gsap.utils.toArray('.hero-title-char');
+      gsap.fromTo(titleChars, 
+        { y: 100, opacity: 0, rotationX: -90 },
+        { 
+          y: 0, 
+          opacity: 1, 
+          rotationX: 0,
+          duration: 0.8,
+          delay: 0.3,
+          stagger: 0.03,
+          ease: "back.out(1.7)"
+        }
       );
 
+      // Typewriter effect for subtitle
       gsap.fromTo(".hero-subtitle", 
-        { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, delay: 0.6, ease: "power2.out" }
+        { opacity: 0 },
+        { 
+          opacity: 1,
+          duration: 0.01,
+          delay: 1.5,
+          text: {
+            value: "Windows, Doors, Siding & Bathroom Remodels",
+            delimiter: ""
+          },
+          ease: "none"
+        }
       );
 
-      // Town cards stagger animation
+      // Floating logo animation
+      gsap.to('.floating-logo', {
+        y: -10,
+        duration: 2,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+
+      // Enhanced town cards with hover effects
       gsap.fromTo(".town-card", 
         { y: 80, opacity: 0, scale: 0.9 },
         {
@@ -47,12 +91,44 @@ export default function AdirondackPage() {
         }
       );
 
-      // Content sections reveal
+      // Floating icons animation
+      gsap.to('.floating-icon', {
+        y: -15,
+        duration: 3,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        stagger: 0.5
+      });
+
+      // Number counter animations
+      const numberElements = numberRefs.current.filter(Boolean);
+      numberElements.forEach((el, index) => {
+        const targetNumber = el.dataset.target ? parseInt(el.dataset.target) : 35;
+        gsap.fromTo(el, 
+          { innerText: 0 },
+          {
+            innerText: targetNumber,
+            duration: 2,
+            snap: { innerText: 1 },
+            scrollTrigger: {
+              trigger: el,
+              start: "top 80%"
+            },
+            onUpdate() {
+              el.innerText = Math.ceil(this.progress() * targetNumber);
+            }
+          }
+        );
+      });
+
+      // Content sections with enhanced animations
       gsap.fromTo(".content-section", 
-        { y: 60, opacity: 0 },
+        { y: 60, opacity: 0, scale: 0.95 },
         {
           y: 0,
           opacity: 1,
+          scale: 1,
           duration: 1,
           stagger: 0.2,
           ease: "power2.out",
@@ -62,6 +138,93 @@ export default function AdirondackPage() {
           }
         }
       );
+
+      // Enhanced town card hover effects
+      document.querySelectorAll('.town-card').forEach((card, index) => {
+        const cardElement = card as HTMLElement;
+        
+        cardElement.addEventListener('mouseenter', () => {
+          gsap.to(cardElement, {
+            scale: 1.05,
+            rotationY: 5,
+            rotationX: 2,
+            boxShadow: '0 25px 50px rgba(0,0,0,0.3)',
+            duration: 0.3,
+            ease: "power2.out"
+          });
+          
+          // Glow effect
+          gsap.to(cardElement.querySelector('.town-glow'), {
+            opacity: 0.6,
+            scale: 1.1,
+            duration: 0.3
+          });
+        });
+        
+        cardElement.addEventListener('mouseleave', () => {
+          gsap.to(cardElement, {
+            scale: 1,
+            rotationY: 0,
+            rotationX: 0,
+            boxShadow: '0 10px 25px rgba(0,0,0,0.1)',
+            duration: 0.3,
+            ease: "power2.out"
+          });
+          
+          gsap.to(cardElement.querySelector('.town-glow'), {
+            opacity: 0,
+            scale: 1,
+            duration: 0.3
+          });
+        });
+        
+        cardElement.addEventListener('mousemove', (e: MouseEvent) => {
+          const rect = cardElement.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          const rotateX = (y - centerY) / 10;
+          const rotateY = (centerX - x) / 10;
+          
+          gsap.to(cardElement, {
+            rotationX: rotateX,
+            rotationY: rotateY,
+            duration: 0.2,
+            ease: "power2.out"
+          });
+        });
+      });
+
+      // Magnetic button effects
+      document.querySelectorAll('.magnetic-button').forEach(button => {
+        const btnElement = button as HTMLElement;
+        
+        btnElement.addEventListener('mousemove', (e: MouseEvent) => {
+          const rect = btnElement.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          
+          gsap.to(btnElement, {
+            x: x * 0.3,
+            y: y * 0.3,
+            duration: 0.3,
+            ease: "power2.out"
+          });
+        });
+        
+        btnElement.addEventListener('mouseleave', () => {
+          gsap.to(btnElement, {
+            x: 0,
+            y: 0,
+            duration: 0.5,
+            ease: "elastic.out(1, 0.3)"
+          });
+        });
+      });
+
     }, [heroRef, townGridRef, contentRef]);
 
     return () => ctx.revert();
@@ -117,30 +280,48 @@ export default function AdirondackPage() {
         ref={heroRef}
         className="relative h-screen flex items-center justify-center overflow-hidden bg-linear-to-br from-emerald-800 via-emerald-600 to-emerald-400 adk-hero-bg"
       >
+        {/* Background Particles */}
+        <div className="absolute inset-0 opacity-30">
+          {Array.from({length: 20}, (_, i) => (
+            <div 
+              key={i}
+              className="absolute w-2 h-2 bg-warm-tan rounded-full animate-pulse"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 2}s`,
+                animationDuration: `${2 + Math.random() * 3}s`
+              }}
+            />
+          ))}
+        </div>
+        
         {/* Stronger overlay for text visibility */}
         <div className="absolute inset-0 bg-linear-to-b from-charcoal/40 via-charcoal/50 to-charcoal/70" />
         <div className="absolute inset-0 bg-gradient-radial from-transparent via-charcoal/20 to-charcoal/40" />
         
         <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
-          {/* Small Logo Above Hero Text */}
+          {/* Floating Logo Above Hero Text */}
           <div className="mb-6">
             <img 
               src="/images/ny-sash-logo.png" 
               alt="New York Sash" 
-              className="h-16 md:h-20 w-auto mx-auto mb-4 drop-shadow-2xl opacity-95"
+              className="floating-logo h-16 md:h-20 w-auto mx-auto mb-4 drop-shadow-2xl opacity-95"
             />
           </div>
           
-          {/* Main heading with strong text shadow */}
+          {/* Main heading with split text animation */}
           <h1 className="hero-title heading-display text-6xl md:text-8xl lg:text-9xl text-creamy-white mb-6" style={{textShadow: '0 0 30px rgba(0,0,0,0.9), 0 0 60px rgba(0,0,0,0.8), 0 4px 20px rgba(0,0,0,0.9)'}}>
-            Serving the Adirondacks
+            {"Serving the Adirondacks".split('').map((char, index) => (
+              <span key={index} className="hero-title-char inline-block" style={{transformOrigin: '50% 50% -30px'}}>
+                {char === ' ' ? '\u00A0' : char}
+              </span>
+            ))}
           </h1>
           
-          <p className="text-2xl md:text-4xl text-warm-tan font-light tracking-wide mb-8" style={{textShadow: '0 0 20px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.8)'}}>
-            Windows, Doors, Siding & Bathroom Remodels
-          </p>
+          <p className="hero-subtitle text-2xl md:text-4xl text-warm-tan font-light tracking-wide mb-8" style={{textShadow: '0 0 20px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.8)'}}></p>
           
-          <p className="hero-subtitle body-serif text-xl md:text-2xl text-creamy-white max-w-3xl mx-auto mb-12" style={{textShadow: '0 0 15px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.8)'}}>
+          <p className="body-serif text-xl md:text-2xl text-creamy-white max-w-3xl mx-auto mb-12" style={{textShadow: '0 0 15px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.8)'}}>
             Bringing 35+ years of trusted expertise to the Adirondacks. Quality windows, one-day bathroom remodels, premium siding, and durable doors - all backed by our lifetime warranty.
           </p>
           
@@ -149,7 +330,7 @@ export default function AdirondackPage() {
               href="https://www.newyorksash.com/quote"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-warm-tan hover:bg-accent-gold text-charcoal px-8 py-4 body-sans font-medium tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-2xl"
+              className="magnetic-button bg-warm-tan hover:bg-accent-gold text-charcoal px-8 py-4 body-sans font-medium tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-2xl rounded-lg"
             >
               Get Free Estimate
             </a>
@@ -176,8 +357,12 @@ export default function AdirondackPage() {
                   key={town.slug}
                   href={`/adk/${town.slug}`}
                   className="town-card group"
+                  style={{ perspective: '1000px' }}
                 >
-                  <div className="relative h-80 bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                  <div className="relative h-80 bg-white rounded-lg overflow-hidden shadow-lg transition-all duration-500">
+                    {/* Glow effect */}
+                    <div className="town-glow absolute inset-0 bg-warm-tan/20 rounded-lg opacity-0 blur-xl"></div>
+                    
                     {/* Stronger, multi-layered overlay for better text visibility */}
                     <div className="absolute inset-0 bg-linear-to-b from-charcoal/30 via-charcoal/60 to-charcoal/90 z-10" />
                     <div className="absolute inset-0 bg-gradient-radial from-transparent via-charcoal/20 to-charcoal/60 z-10" />
@@ -220,8 +405,9 @@ export default function AdirondackPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
             <div className="content-section text-center">
-              <div className="w-24 h-24 bg-warm-tan/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-4xl font-bold text-warm-tan" style={{ lineHeight: 1, marginTop: '-15px' }}>35+</span>
+              <div className="floating-icon w-24 h-24 bg-warm-tan/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span ref={el => el && (numberRefs.current[0] = el)} className="text-4xl font-bold text-warm-tan" data-target="35" style={{ lineHeight: 1, marginTop: '-15px' }}>35</span>
+                <span className="text-4xl font-bold text-warm-tan" style={{ lineHeight: 1, marginTop: '-15px' }}>+</span>
               </div>
               <h3 className="heading-primary text-2xl text-charcoal mb-4">Years Experience</h3>
               <p className="body-serif text-soft-gray">
@@ -231,7 +417,7 @@ export default function AdirondackPage() {
             </div>
 
             <div className="content-section text-center">
-              <div className="w-24 h-24 bg-warm-tan/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="floating-icon w-24 h-24 bg-warm-tan/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-5xl font-bold text-warm-tan" style={{ lineHeight: 1, marginTop: '-4px' }}>∞</span>
               </div>
               <h3 className="heading-primary text-2xl text-charcoal mb-4">Lifetime Warranty</h3>
@@ -242,7 +428,7 @@ export default function AdirondackPage() {
             </div>
 
             <div className="content-section text-center">
-              <div className="w-24 h-24 bg-warm-tan/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="floating-icon w-24 h-24 bg-warm-tan/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-4xl font-bold text-warm-tan" style={{ lineHeight: 1 }}>★</span>
               </div>
               <h3 className="heading-primary text-2xl text-charcoal mb-4">In-House Installers</h3>
@@ -265,7 +451,7 @@ export default function AdirondackPage() {
               href="https://www.newyorksash.com/quote"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-charcoal hover:bg-warm-tan text-creamy-white hover:text-charcoal px-8 py-4 body-sans font-medium tracking-wide transition-all duration-300 hover:scale-105"
+              className="magnetic-button bg-charcoal hover:bg-warm-tan text-creamy-white hover:text-charcoal px-8 py-4 body-sans font-medium tracking-wide transition-all duration-300 hover:scale-105 rounded-lg"
             >
               Get Your Free Estimate
             </a>
