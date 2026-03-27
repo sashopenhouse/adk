@@ -214,25 +214,33 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
               {townData.successStories.map((story, index) => (
                 <div key={index} className="success-card bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-all duration-300">
-                  <div className="mb-6">
-                    <h3 className="heading-primary text-2xl text-charcoal mb-2">
-                      {story.title}
-                    </h3>
-                    <p className="body-sans text-warm-tan font-medium mb-1">
-                      {story.homeowner} • {story.project}
-                    </p>
-                    <p className="body-sans text-sm text-soft-gray">
-                      Completed in {story.timeframe}
-                    </p>
+                  {/* Icon header */}
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-warm-tan/10 rounded-full flex items-center justify-center mr-4">
+                      <span className="text-2xl text-warm-tan" style={{ lineHeight: 1 }}>★</span>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="heading-primary text-2xl text-charcoal mb-1">
+                        {story.title}
+                      </h3>
+                      <p className="body-sans text-warm-tan font-medium text-sm">
+                        {story.homeowner} • {story.project}
+                      </p>
+                    </div>
                   </div>
+                  
+                  <p className="body-sans text-xs text-soft-gray mb-4 uppercase tracking-wide">
+                    Completed in {story.timeframe}
+                  </p>
                   
                   <p className="body-serif text-soft-gray mb-6 leading-relaxed">
                     {story.description}
                   </p>
                   
-                  <div className="bg-oatmeal p-4 rounded-lg">
-                    <p className="body-serif text-charcoal font-medium">
-                      &ldquo;{story.result}&rdquo;
+                  <div className="bg-oatmeal p-4 rounded-lg relative">
+                    <div className="text-4xl text-warm-tan/20 absolute top-2 left-3" style={{ lineHeight: 1 }}>"</div>
+                    <p className="body-serif text-charcoal font-medium pl-6">
+                      {story.result}
                     </p>
                   </div>
                 </div>
@@ -255,6 +263,13 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {townData.localFeatures.map((feature, index) => (
                 <div key={index} className="success-card text-center bg-oatmeal p-8 rounded-lg">
+                  {/* Icon for local features */}
+                  <div className="w-16 h-16 bg-warm-tan/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <span className="text-3xl text-warm-tan" style={{ lineHeight: 1 }}>
+                      {index === 0 ? '🏔️' : index === 1 ? '🌲' : '🏡'}
+                    </span>
+                  </div>
+                  
                   <h3 className="heading-primary text-xl text-charcoal mb-4">
                     {feature.title}
                   </h3>
