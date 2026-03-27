@@ -122,6 +122,113 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
         }
       );
 
+      // Additional scroll effect animations
+      gsap.fromTo(".scroll-heading", 
+        { y: 60, opacity: 0, scale: 0.9 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: ".scroll-heading",
+            start: "top 90%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+      // Text reveal animations
+      gsap.fromTo(".scroll-text", 
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".scroll-text",
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+      // Feature icons with bounce effect
+      gsap.fromTo(".feature-icon", 
+        { scale: 0, rotation: -180 },
+        {
+          scale: 1,
+          rotation: 0,
+          duration: 0.8,
+          ease: "back.out(2)",
+          stagger: 0.2,
+          scrollTrigger: {
+            trigger: ".feature-icon",
+            start: "top 80%"
+          }
+        }
+      );
+
+      // Background elements parallax
+      gsap.to(".parallax-bg", {
+        yPercent: -20,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".parallax-section",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1
+        }
+      });
+
+      // Image reveals with mask effect
+      gsap.fromTo(".image-reveal", 
+        { scale: 1.2, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 1.5,
+          ease: "power2.out",
+          stagger: 0.3,
+          scrollTrigger: {
+            trigger: ".image-reveal",
+            start: "top 85%"
+          }
+        }
+      );
+
+      // Section headers with underline animation
+      gsap.fromTo(".section-header", 
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".section-header",
+            start: "top 85%"
+          }
+        }
+      );
+
+      gsap.fromTo(".header-underline", 
+        { width: "0%" },
+        {
+          width: "100%",
+          duration: 1.2,
+          delay: 0.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".section-header",
+            start: "top 85%"
+          }
+        }
+      );
+
       // Enhanced success cards with 3D effects
       gsap.fromTo(".success-card", 
         { y: 100, opacity: 0, scale: 0.8, rotationX: -20 },
@@ -223,18 +330,20 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
       </section>
 
       {/* Targeted Content Section */}
-      <section ref={contentRef} className="py-24 px-6 bg-oatmeal">
+      <section ref={contentRef} className="py-24 px-6 bg-oatmeal parallax-section">
+        <div className="parallax-bg absolute inset-0 bg-gradient-to-b from-oatmeal/50 to-white/20 -z-10" />
         <div className="max-w-6xl mx-auto">
           <div className="content-highlight text-center mb-16">
-            <h2 className="heading-primary text-4xl md:text-5xl text-charcoal mb-8">
+            <h2 className="section-header heading-primary text-4xl md:text-5xl text-charcoal mb-8">
               {townData.targetContent.title}
+              <div className="header-underline h-1 bg-gradient-to-r from-warm-tan to-accent-gold mx-auto mt-4 rounded-full w-24"></div>
             </h2>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
             <div>
               {townData.targetContent.content.map((paragraph, index) => (
-                <p key={index} className="content-highlight body-serif text-lg text-soft-gray mb-6 leading-relaxed">
+                <p key={index} className="scroll-text content-highlight body-serif text-lg text-soft-gray mb-6 leading-relaxed">
                   {paragraph}
                 </p>
               ))}
@@ -244,11 +353,11 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
               {townData.highlights.map((highlight, index) => {
                 return (
                   <div key={index} className="content-highlight flex flex-col space-y-4">
-                    <div>
-                      <h3 className="heading-primary text-xl text-charcoal mb-2">
+                    <div className="feature-icon">
+                      <h3 className="scroll-heading heading-primary text-xl text-charcoal mb-2">
                         {highlight.title}
                       </h3>
-                      <p className="body-serif text-soft-gray">
+                      <p className="scroll-text body-serif text-soft-gray">
                         {highlight.description}
                       </p>
                     </div>
@@ -261,15 +370,17 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
       </section>
 
       {/* Success Stories & Local Features */}
-      <section ref={storiesRef} className="py-24 px-6 bg-creamy-white">
+      <section ref={storiesRef} className="py-24 px-6 bg-creamy-white parallax-section">
+        <div className="parallax-bg absolute inset-0 bg-gradient-to-b from-emerald-50/30 to-white/10 -z-10" />
         <div className="max-w-7xl mx-auto">
           {/* Success Stories */}
           <div className="mb-24">
             <div className="text-center mb-16">
-              <h2 className="heading-primary text-4xl md:text-5xl text-charcoal mb-6">
+              <h2 className="section-header heading-primary text-4xl md:text-5xl text-charcoal mb-6">
                 Success Stories from {townData.name}
+                <div className="header-underline h-1 bg-gradient-to-r from-warm-tan to-accent-gold mx-auto mt-4 rounded-full w-32"></div>
               </h2>
-              <p className="body-serif text-xl text-soft-gray max-w-3xl mx-auto">
+              <p className="scroll-text body-serif text-xl text-soft-gray max-w-3xl mx-auto">
                 Real transformations from your neighbors who trusted New York Sash 
                 with their home improvement projects.
               </p>
@@ -277,17 +388,17 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
               {townData.successStories.map((story, index) => (
-                <div key={index} className="success-card bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-all duration-300" style={{ perspective: '1000px' }}>
+                <div key={index} className="success-card image-reveal bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-all duration-300" style={{ perspective: '1000px' }}>
                   {/* Icon header */}
                   <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-warm-tan/10 rounded-full flex items-center justify-center mr-4">
+                    <div className="feature-icon w-12 h-12 bg-warm-tan/10 rounded-full flex items-center justify-center mr-4">
                       <span className="floating-testimonial-icon text-2xl text-warm-tan" style={{ lineHeight: 1 }}>★</span>
                     </div>
                     <div className="flex-1">
-                      <h3 className="heading-primary text-2xl text-charcoal mb-1">
+                      <h3 className="scroll-heading heading-primary text-2xl text-charcoal mb-1">
                         {story.title}
                       </h3>
-                      <p className="body-sans text-warm-tan font-medium text-sm">
+                      <p className="scroll-text body-sans text-warm-tan font-medium text-sm">
                         {story.homeowner} • {story.project}
                       </p>
                     </div>

@@ -123,19 +123,191 @@ export default function AdirondackPage() {
         );
       });
 
-      // Content sections with enhanced animations
+      // Enhanced content sections with sophisticated scroll animations
       gsap.fromTo(".content-section", 
-        { y: 60, opacity: 0, scale: 0.95 },
+        { y: 80, opacity: 0, scale: 0.95, rotationX: -15 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          rotationX: 0,
+          duration: 1.2,
+          stagger: 0.3,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: contentRef.current,
+            start: "top 85%",
+            end: "bottom 20%"
+          }
+        }
+      );
+
+      // Individual heading animations
+      gsap.fromTo(".scroll-heading", 
+        { y: 60, opacity: 0, scale: 0.9 },
         {
           y: 0,
           opacity: 1,
           scale: 1,
           duration: 1,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: ".scroll-heading",
+            start: "top 90%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+      // Text reveal animations
+      gsap.fromTo(".scroll-text", 
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
           stagger: 0.2,
           ease: "power2.out",
           scrollTrigger: {
-            trigger: contentRef.current,
+            trigger: ".scroll-text",
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+      // Feature icons with bounce effect
+      gsap.fromTo(".feature-icon", 
+        { scale: 0, rotation: -180 },
+        {
+          scale: 1,
+          rotation: 0,
+          duration: 0.8,
+          ease: "back.out(2)",
+          stagger: 0.2,
+          scrollTrigger: {
+            trigger: ".feature-icon",
             start: "top 80%"
+          }
+        }
+      );
+
+      // Background elements parallax
+      gsap.to(".parallax-bg", {
+        yPercent: -20,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".parallax-section",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1
+        }
+      });
+
+      // Progress bar animation
+      gsap.fromTo(".progress-bar", 
+        { width: "0%" },
+        {
+          width: "100%",
+          duration: 2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".progress-container",
+            start: "top 80%"
+          }
+        }
+      );
+
+      // Image reveals with mask effect
+      gsap.fromTo(".image-reveal", 
+        { scale: 1.2, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 1.5,
+          ease: "power2.out",
+          stagger: 0.3,
+          scrollTrigger: {
+            trigger: ".image-reveal",
+            start: "top 85%"
+          }
+        }
+      );
+
+      // CTA section animation
+      gsap.fromTo(".cta-section", 
+        { y: 100, opacity: 0, scale: 0.95 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".cta-section",
+            start: "top 80%"
+          }
+        }
+      );
+
+      // Button hover reveal
+      gsap.fromTo(".reveal-button", 
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.5,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: ".reveal-button",
+            start: "top 85%"
+          }
+        }
+      );
+
+      // Decorative elements floating in
+      gsap.fromTo(".decorative-element", 
+        { x: -100, opacity: 0, rotation: -45 },
+        {
+          x: 0,
+          opacity: 0.6,
+          rotation: 0,
+          duration: 1.2,
+          stagger: 0.3,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".decorative-element",
+            start: "top 90%"
+          }
+        }
+      );
+
+      // Section headers with underline animation
+      gsap.fromTo(".section-header", 
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".section-header",
+            start: "top 85%"
+          }
+        }
+      );
+
+      gsap.fromTo(".header-underline", 
+        { width: "0%" },
+        {
+          width: "100%",
+          duration: 1.2,
+          delay: 0.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".section-header",
+            start: "top 85%"
           }
         }
       );
@@ -451,13 +623,15 @@ export default function AdirondackPage() {
       </section>
 
       {/* Regional Content Section */}
-      <section ref={contentRef} className="py-24 px-6 bg-creamy-white">
+      <section ref={contentRef} className="py-24 px-6 bg-creamy-white parallax-section">
+        <div className="parallax-bg absolute inset-0 bg-gradient-to-b from-white/5 to-emerald-50/20 -z-10" />
         <div className="max-w-6xl mx-auto">
           <div className="content-section text-center mb-20">
-            <h2 className="heading-primary text-5xl md:text-6xl text-charcoal mb-8">
+            <h2 className="section-header heading-primary text-5xl md:text-6xl text-charcoal mb-8">
               Why Choose New York Sash for Your Adirondack Home?
+              <div className="header-underline h-1 bg-gradient-to-r from-warm-tan to-accent-gold mx-auto mt-4 rounded-full w-24"></div>
             </h2>
-            <p className="body-serif text-xl text-soft-gray max-w-4xl mx-auto leading-relaxed">
+            <p className="scroll-text body-serif text-xl text-soft-gray max-w-4xl mx-auto leading-relaxed">
               For over 35 years, we&apos;ve been Central New York&apos;s trusted home improvement company. 
               Now we&apos;re bringing our proven expertise, lifetime warranties, and factory-trained installers 
               to the unique challenges and beauty of Adirondack living.
@@ -466,53 +640,66 @@ export default function AdirondackPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
             <div className="content-section text-center">
-              <div className="floating-icon w-24 h-24 bg-warm-tan/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="feature-icon floating-icon w-24 h-24 bg-warm-tan/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span ref={el => el && (numberRefs.current[0] = el)} className="text-4xl font-bold text-warm-tan" data-target="35" style={{ lineHeight: 1, marginTop: '-15px' }}>35</span>
                 <span className="text-4xl font-bold text-warm-tan" style={{ lineHeight: 1, marginTop: '-15px' }}>+</span>
               </div>
-              <h3 className="heading-primary text-2xl text-charcoal mb-4">Years Experience</h3>
-              <p className="body-serif text-soft-gray">
+              <h3 className="scroll-heading heading-primary text-2xl text-charcoal mb-4">Years Experience</h3>
+              <p className="scroll-text body-serif text-soft-gray">
                 Since 1989, we&apos;ve been perfecting our craft. Our factory-trained installers 
                 understand both Central NY winters and Adirondack mountain conditions.
               </p>
             </div>
 
             <div className="content-section text-center">
-              <div className="floating-icon w-24 h-24 bg-warm-tan/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="feature-icon floating-icon w-24 h-24 bg-warm-tan/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-5xl font-bold text-warm-tan" style={{ lineHeight: 1, marginTop: '-4px' }}>∞</span>
               </div>
-              <h3 className="heading-primary text-2xl text-charcoal mb-4">Lifetime Warranty</h3>
-              <p className="body-serif text-soft-gray">
+              <h3 className="scroll-heading heading-primary text-2xl text-charcoal mb-4">Lifetime Warranty</h3>
+              <p className="scroll-text body-serif text-soft-gray">
                 Every window, bathroom, siding project, and door installation is backed by 
                 our comprehensive lifetime warranty - parts AND labor.
               </p>
             </div>
 
             <div className="content-section text-center">
-              <div className="floating-icon w-24 h-24 bg-warm-tan/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="feature-icon floating-icon w-24 h-24 bg-warm-tan/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-4xl font-bold text-warm-tan" style={{ lineHeight: 1 }}>★</span>
               </div>
-              <h3 className="heading-primary text-2xl text-charcoal mb-4">In-House Installers</h3>
-              <p className="body-serif text-soft-gray">
+              <h3 className="scroll-heading heading-primary text-2xl text-charcoal mb-4">In-House Installers</h3>
+              <p className="scroll-text body-serif text-soft-gray">
                 No subcontractors, ever. Our own factory-trained professionals handle every 
                 installation with the care and precision your Adirondack home deserves.
               </p>
             </div>
           </div>
 
-          <div className="content-section bg-oatmeal rounded-lg p-12 text-center">
-            <h3 className="heading-primary text-3xl text-charcoal mb-6">
+          <div className="cta-section content-section bg-oatmeal rounded-lg p-12 text-center image-reveal">
+            <div className="progress-container mb-8">
+              <div className="progress-bar h-1 bg-gradient-to-r from-warm-tan to-accent-gold rounded-full"></div>
+            </div>
+            
+            <h3 className="section-header heading-primary text-3xl text-charcoal mb-6">
               Ready to Transform Your Adirondack Home?
+              <div className="header-underline h-1 bg-gradient-to-r from-warm-tan to-accent-gold mx-auto mt-3 rounded-full w-16"></div>
             </h3>
-            <p className="body-serif text-xl text-soft-gray mb-8 max-w-3xl mx-auto">
+            <p className="scroll-text body-serif text-xl text-soft-gray mb-8 max-w-3xl mx-auto">
               From energy-efficient windows to one-day bathroom makeovers, premium siding to beautiful doors - 
               New York Sash brings trusted quality to the Adirondacks.
             </p>
+            
+            <div className="decorative-element absolute top-4 left-4 opacity-20">
+              <span className="text-6xl">🏔️</span>
+            </div>
+            <div className="decorative-element absolute top-4 right-4 opacity-20">
+              <span className="text-6xl">🌲</span>
+            </div>
+            
             <a 
               href="https://www.newyorksash.com/quote"
               target="_blank"
               rel="noopener noreferrer"
-              className="magnetic-button bg-charcoal hover:bg-warm-tan text-creamy-white hover:text-charcoal px-8 py-4 body-sans font-medium tracking-wide transition-all duration-300 hover:scale-105 rounded-lg"
+              className="reveal-button magnetic-button bg-charcoal hover:bg-warm-tan text-creamy-white hover:text-charcoal px-8 py-4 body-sans font-medium tracking-wide transition-all duration-300 hover:scale-105 rounded-lg"
             >
               Get Your Free Estimate
             </a>
