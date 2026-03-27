@@ -140,46 +140,88 @@ export default function AdirondackPage() {
         }
       );
 
-      // Enhanced town card hover effects
+      // Sophisticated town card hover effects
       document.querySelectorAll('.town-card').forEach((card, index) => {
         const cardElement = card as HTMLElement;
+        const imageElement = cardElement.querySelector('.town-image') as HTMLElement;
+        const textElement = cardElement.querySelector('.town-content') as HTMLElement;
+        
+        let isHovering = false;
         
         cardElement.addEventListener('mouseenter', () => {
+          isHovering = true;
+          
+          // Subtle lift and glow
           gsap.to(cardElement, {
-            scale: 1.05,
-            rotationY: 5,
-            rotationX: 2,
-            boxShadow: '0 25px 50px rgba(0,0,0,0.3)',
-            duration: 0.3,
+            y: -12,
+            scale: 1.02,
+            boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
+            duration: 0.6,
+            ease: "power3.out"
+          });
+          
+          // Subtle background zoom
+          gsap.to(imageElement, {
+            scale: 1.08,
+            duration: 1.2,
             ease: "power2.out"
           });
           
-          // Glow effect
+          // Text content lift
+          gsap.to(textElement, {
+            y: -4,
+            duration: 0.5,
+            ease: "power2.out"
+          });
+          
+          // Sophisticated glow effect
           gsap.to(cardElement.querySelector('.town-glow'), {
-            opacity: 0.6,
-            scale: 1.1,
-            duration: 0.3
+            opacity: 0.3,
+            scale: 1.05,
+            duration: 0.8,
+            ease: "power2.out"
           });
         });
         
         cardElement.addEventListener('mouseleave', () => {
+          isHovering = false;
+          
           gsap.to(cardElement, {
+            y: 0,
             scale: 1,
-            rotationY: 0,
             rotationX: 0,
-            boxShadow: '0 10px 25px rgba(0,0,0,0.1)',
-            duration: 0.3,
+            rotationY: 0,
+            boxShadow: '0 8px 25px rgba(0,0,0,0.1)',
+            duration: 0.8,
+            ease: "elastic.out(1, 0.8)"
+          });
+          
+          gsap.to(imageElement, {
+            scale: 1,
+            x: 0,
+            y: 0,
+            duration: 1,
+            ease: "power2.out"
+          });
+          
+          gsap.to(textElement, {
+            y: 0,
+            x: 0,
+            duration: 0.7,
             ease: "power2.out"
           });
           
           gsap.to(cardElement.querySelector('.town-glow'), {
             opacity: 0,
             scale: 1,
-            duration: 0.3
+            duration: 0.6,
+            ease: "power2.out"
           });
         });
         
         cardElement.addEventListener('mousemove', (e: MouseEvent) => {
+          if (!isHovering) return;
+          
           const rect = cardElement.getBoundingClientRect();
           const x = e.clientX - rect.left;
           const y = e.clientY - rect.top;
@@ -187,14 +229,34 @@ export default function AdirondackPage() {
           const centerX = rect.width / 2;
           const centerY = rect.height / 2;
           
-          const rotateX = (y - centerY) / 10;
-          const rotateY = (centerX - x) / 10;
+          // Very subtle 3D tilt (much less aggressive)
+          const rotateX = (y - centerY) / 30;
+          const rotateY = (centerX - x) / 30;
+          
+          // Sophisticated parallax movement
+          const moveX = (x - centerX) / 20;
+          const moveY = (y - centerY) / 20;
           
           gsap.to(cardElement, {
             rotationX: rotateX,
             rotationY: rotateY,
-            duration: 0.2,
-            ease: "power2.out"
+            duration: 0.4,
+            ease: "power1.out"
+          });
+          
+          // Parallax background movement (opposite direction)
+          gsap.to(imageElement, {
+            x: -moveX * 0.5,
+            y: -moveY * 0.5,
+            duration: 0.6,
+            ease: "power1.out"
+          });
+          
+          // Subtle text movement
+          gsap.to(textElement, {
+            x: moveX * 0.3,
+            duration: 0.4,
+            ease: "power1.out"
           });
         });
       });
@@ -359,24 +421,24 @@ export default function AdirondackPage() {
                   style={{ perspective: '1000px' }}
                 >
                   <div className="relative h-80 bg-white rounded-lg overflow-hidden shadow-lg transition-all duration-500">
-                    {/* Glow effect */}
-                    <div className="town-glow absolute inset-0 bg-warm-tan/20 rounded-lg opacity-0 blur-xl"></div>
+                    {/* Sophisticated glow effect */}
+                    <div className="town-glow absolute -inset-2 bg-warm-tan/10 rounded-lg opacity-0 blur-2xl"></div>
                     
                     {/* Stronger, multi-layered overlay for better text visibility */}
                     <div className="absolute inset-0 bg-linear-to-b from-charcoal/30 via-charcoal/60 to-charcoal/90 z-10" />
                     <div className="absolute inset-0 bg-gradient-radial from-transparent via-charcoal/20 to-charcoal/60 z-10" />
                     
                     <div 
-                      className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-700"
+                      className="town-image absolute inset-0 bg-cover bg-center transition-transform duration-1000 ease-out"
                       style={{ backgroundImage: `url(${town.image})` }}
                     />
                     
-                    <div className="relative z-20 p-8 h-full flex flex-col justify-end">
+                    <div className="town-content relative z-20 p-8 h-full flex flex-col justify-end">
                       <h3 className="heading-primary text-4xl text-creamy-white mb-4" style={{textShadow: '0 0 20px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.8), 0 4px 15px rgba(0,0,0,0.7)'}}>
                         {town.name}
                       </h3>
                       
-                      <div className="flex items-center text-accent-gold group-hover:text-warm-tan transition-colors duration-300">
+                      <div className="flex items-center text-accent-gold transition-colors duration-500">
                         <span className="body-sans font-bold text-lg" style={{textShadow: '0 0 10px rgba(0,0,0,0.9), 0 2px 6px rgba(0,0,0,0.8)'}}>Learn More →</span>
                       </div>
                     </div>
