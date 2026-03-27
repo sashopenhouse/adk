@@ -35,20 +35,21 @@ export default function AdirondackPage() {
         }
       });
 
-      // Split text animation for title
-      const titleChars = gsap.utils.toArray('.hero-title-char');
-      gsap.fromTo(titleChars, 
-        { y: 100, opacity: 0, rotationX: -90 },
-        { 
-          y: 0, 
-          opacity: 1, 
-          rotationX: 0,
-          duration: 0.8,
-          delay: 0.3,
-          stagger: 0.03,
-          ease: "back.out(1.7)"
-        }
-      );
+      // Split text animation for title (word-based for better readability)
+      const titleWords = ["Serving", "the", "Adirondacks"];
+      titleWords.forEach((word, wordIndex) => {
+        gsap.fromTo(`.hero-word-${wordIndex}`, 
+          { y: 100, opacity: 0, rotationX: -90 },
+          { 
+            y: 0, 
+            opacity: 1, 
+            rotationX: 0,
+            duration: 0.8,
+            delay: 0.3 + (wordIndex * 0.2),
+            ease: "back.out(1.7)"
+          }
+        );
+      });
 
       // Typewriter effect for subtitle
       gsap.fromTo(".hero-subtitle", 
@@ -310,13 +311,11 @@ export default function AdirondackPage() {
             />
           </div>
           
-          {/* Main heading with split text animation */}
+          {/* Main heading with word-based split animation */}
           <h1 className="hero-title heading-display text-6xl md:text-8xl lg:text-9xl text-creamy-white mb-6" style={{textShadow: '0 0 30px rgba(0,0,0,0.9), 0 0 60px rgba(0,0,0,0.8), 0 4px 20px rgba(0,0,0,0.9)'}}>
-            {"Serving the Adirondacks".split('').map((char, index) => (
-              <span key={index} className="hero-title-char inline-block" style={{transformOrigin: '50% 50% -30px'}}>
-                {char === ' ' ? '\u00A0' : char}
-              </span>
-            ))}
+            <span className="hero-word-0 inline-block mr-4" style={{transformOrigin: '50% 50% -30px'}}>Serving</span>
+            <span className="hero-word-1 inline-block mr-4" style={{transformOrigin: '50% 50% -30px'}}>the</span>
+            <span className="hero-word-2 inline-block" style={{transformOrigin: '50% 50% -30px'}}>Adirondacks</span>
           </h1>
           
           <p className="hero-subtitle text-2xl md:text-4xl text-warm-tan font-light tracking-wide mb-8" style={{textShadow: '0 0 20px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.8)'}}></p>

@@ -69,17 +69,8 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
         }
       });
 
-      // Split text animation for town title
-      const titleText = document.querySelector('.town-hero-title')?.textContent || '';
-      const titleChars = titleText.split('').map((char, index) => 
-        `<span class="town-title-char inline-block" style="transform-origin: 50% 50% -30px;">${char === ' ' ? '&nbsp;' : char}</span>`
-      ).join('');
-      
-      if (document.querySelector('.town-hero-title')) {
-        document.querySelector('.town-hero-title')!.innerHTML = titleChars;
-      }
-
-      gsap.fromTo(".town-title-char", 
+      // Enhanced town title animation (word-based for readability)
+      gsap.fromTo(".town-hero-title", 
         { y: 100, opacity: 0, rotationX: -90 },
         { 
           y: 0, 
@@ -87,7 +78,6 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
           rotationX: 0,
           duration: 0.8,
           delay: 0.2,
-          stagger: 0.04,
           ease: "back.out(1.7)"
         }
       );
