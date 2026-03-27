@@ -102,7 +102,7 @@ export default function AdirondackPage() {
               start: "top 80%"
             },
             onUpdate() {
-              el.innerText = Math.ceil(this.progress() * targetNumber);
+              el.innerText = Math.ceil(this.progress() * targetNumber).toString();
             }
           }
         );
