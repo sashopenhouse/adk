@@ -2,6 +2,11 @@
 
 A sophisticated Next.js 14 application showcasing home improvement professionals across four premier Adirondack communities: Boonville, Old Forge, Inlet, and Eagle Bay.
 
+## 🚀 Deployment Status
+**Production**: https://adk-sashopenhouse.vercel.app  
+**Framework**: Next.js 14 with TypeScript  
+**Last Updated**: March 27, 2026
+
 ## 🎨 Design Philosophy
 
 **Modern Farmhouse / High-End Agency Aesthetic**
