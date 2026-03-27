@@ -217,7 +217,7 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
                   {/* Icon header */}
                   <div className="flex items-center mb-6">
                     <div className="w-12 h-12 bg-warm-tan/10 rounded-full flex items-center justify-center mr-4">
-                      <span className="text-2xl text-warm-tan font-bold" style={{ lineHeight: 1 }}>✓</span>
+                      <span className="text-2xl text-warm-tan" style={{ lineHeight: 1 }}>★</span>
                     </div>
                     <div className="flex-1">
                       <h3 className="heading-primary text-2xl text-charcoal mb-1">
@@ -237,11 +237,17 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
                     {story.description}
                   </p>
                   
-                  <div className="bg-oatmeal p-4 rounded-lg relative">
-                    <div className="text-4xl text-warm-tan/20 absolute top-2 left-3" style={{ lineHeight: 1 }}>"</div>
-                    <p className="body-serif text-charcoal font-medium pl-6">
-                      {story.result}
-                    </p>
+                  {/* Speech bubble style quote */}
+                  <div className="relative bg-oatmeal p-6 rounded-2xl">
+                    {/* Speech bubble tail */}
+                    <div className="absolute -top-2 left-6 w-4 h-4 bg-oatmeal transform rotate-45"></div>
+                    <div className="relative">
+                      <div className="text-3xl text-warm-tan/30 absolute -top-2 -left-2" style={{ lineHeight: 1 }}>"</div>
+                      <p className="body-serif text-charcoal font-medium italic pl-4">
+                        {story.result}
+                      </p>
+                      <div className="text-3xl text-warm-tan/30 absolute -bottom-4 -right-2" style={{ lineHeight: 1 }}>"</div>
+                    </div>
                   </div>
                 </div>
               ))}
