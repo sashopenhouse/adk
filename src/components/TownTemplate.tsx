@@ -134,23 +134,25 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
         ref={heroRef}
         className="relative h-screen flex items-center justify-center overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(rgba(51, 51, 51, 0.5), rgba(210, 180, 140, 0.3)), url(${townData.heroImage})`,
+          backgroundImage: `url(${townData.heroImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
       >
-        <div className="absolute inset-0 bg-linear-to-b from-transparent via-charcoal/20 to-charcoal/40" />
+        {/* Multi-layered overlay for better text visibility */}
+        <div className="absolute inset-0 bg-linear-to-b from-charcoal/40 via-charcoal/60 to-charcoal/80" />
+        <div className="absolute inset-0 bg-gradient-radial from-transparent via-charcoal/30 to-charcoal/50" />
         
         <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-          <h1 className="town-hero-title heading-display text-6xl md:text-8xl text-creamy-white mb-6 drop-shadow-2xl">
+          <h1 className="town-hero-title heading-display text-6xl md:text-8xl text-creamy-white mb-6" style={{textShadow: '0 0 30px rgba(0,0,0,0.9), 0 0 60px rgba(0,0,0,0.8), 0 4px 20px rgba(0,0,0,0.9)'}}>
             {townData.name}
           </h1>
           
-          <p className="town-hero-tagline body-serif text-2xl md:text-3xl text-warm-tan mb-8 drop-shadow-lg">
+          <p className="town-hero-tagline body-serif text-2xl md:text-3xl text-accent-gold mb-8 font-medium" style={{textShadow: '0 0 20px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.8)'}}>
             {townData.tagline}
           </p>
           
-          <p className="body-serif text-xl text-creamy-white/90 max-w-3xl mx-auto drop-shadow-md">
+          <p className="body-serif text-xl text-creamy-white max-w-3xl mx-auto" style={{textShadow: '0 0 15px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.8)'}}>
             {townData.description}
           </p>
         </div>
