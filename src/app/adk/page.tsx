@@ -162,7 +162,7 @@ export default function AdirondackPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="heading-primary text-5xl md:text-6xl text-charcoal mb-6">
-              Our Adirondack Services
+              Towns We Serve
             </h2>
             <p className="body-serif text-xl text-soft-gray max-w-3xl mx-auto">
               From Central New York to the heart of the Adirondacks, New York Sash brings factory-trained professionals and lifetime warranties to every project in Boonville, Old Forge, Inlet, and Eagle Bay.
