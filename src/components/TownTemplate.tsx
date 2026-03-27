@@ -104,6 +104,22 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
         ease: "sine.inOut"
       });
 
+      // Simple fade-in animations for town pages
+      gsap.fromTo(".fade-in-text", 
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".fade-in-text",
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
       // Enhanced content animations with stagger
       gsap.fromTo(".content-highlight", 
         { y: 80, opacity: 0, scale: 0.95, rotationY: -15 },
@@ -319,11 +335,11 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
             {townData.name}
           </h1>
           
-          <p className="town-hero-tagline body-serif text-2xl md:text-3xl text-accent-gold mb-8 font-medium" style={{textShadow: '0 0 20px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.8)'}}>
+          <p className="fade-in-text town-hero-tagline body-serif text-2xl md:text-3xl text-accent-gold mb-8 font-medium" style={{textShadow: '0 0 20px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.8)'}}>
             {townData.tagline}
           </p>
           
-          <p className="body-serif text-xl text-creamy-white max-w-3xl mx-auto" style={{textShadow: '0 0 15px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.8)'}}>
+          <p className="fade-in-text body-serif text-xl text-creamy-white max-w-3xl mx-auto" style={{textShadow: '0 0 15px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.8)'}}>
             {townData.description}
           </p>
         </div>
@@ -334,7 +350,7 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
         <div className="parallax-bg absolute inset-0 bg-gradient-to-b from-oatmeal/50 to-white/20 -z-10" />
         <div className="max-w-6xl mx-auto">
           <div className="content-highlight text-center mb-16">
-            <h2 className="section-header heading-primary text-4xl md:text-5xl text-charcoal mb-8">
+            <h2 className="fade-in-text section-header heading-primary text-4xl md:text-5xl text-charcoal mb-8">
               {townData.targetContent.title}
               <div className="header-underline h-1 bg-gradient-to-r from-warm-tan to-accent-gold mx-auto mt-4 rounded-full w-24"></div>
             </h2>
@@ -343,7 +359,7 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
             <div>
               {townData.targetContent.content.map((paragraph, index) => (
-                <p key={index} className="scroll-text content-highlight body-serif text-lg text-soft-gray mb-6 leading-relaxed">
+                <p key={index} className="fade-in-text content-highlight body-serif text-lg text-soft-gray mb-6 leading-relaxed">
                   {paragraph}
                 </p>
               ))}
@@ -354,10 +370,10 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
                 return (
                   <div key={index} className="content-highlight flex flex-col space-y-4">
                     <div className="feature-icon">
-                      <h3 className="scroll-heading heading-primary text-xl text-charcoal mb-2">
+                      <h3 className="fade-in-text scroll-heading heading-primary text-xl text-charcoal mb-2">
                         {highlight.title}
                       </h3>
-                      <p className="scroll-text body-serif text-soft-gray">
+                      <p className="fade-in-text body-serif text-soft-gray">
                         {highlight.description}
                       </p>
                     </div>
@@ -467,32 +483,15 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-6 bg-charcoal">
+      {/* Simple Navigation CTA */}
+      <section className="py-16 px-6 bg-oatmeal">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="heading-primary text-4xl text-creamy-white mb-6">
-            Ready to Start Your {townData.name} Project?
-          </h2>
-          <p className="body-serif text-xl text-creamy-white/80 mb-8 max-w-2xl mx-auto">
-            Connect with our local experts who understand the unique characteristics 
-            and requirements of building in {townData.name}.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="https://www.newyorksash.com/quote"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-warm-tan hover:bg-accent-gold text-charcoal px-8 py-4 body-sans font-medium tracking-wide transition-all duration-300 hover:scale-105"
-            >
-              Get Local Quotes
-            </a>
-            <Link 
-              href="/adk"
-              className="border-2 border-warm-tan hover:bg-warm-tan text-warm-tan hover:text-charcoal px-8 py-4 body-sans font-medium tracking-wide transition-all duration-300 hover:scale-105 text-center"
-            >
-              Explore Other Towns
-            </Link>
-          </div>
+          <Link 
+            href="/adk"
+            className="inline-flex items-center bg-warm-tan hover:bg-accent-gold text-charcoal px-8 py-4 body-sans font-medium tracking-wide transition-all duration-300 hover:scale-105 rounded-lg"
+          >
+            ← Explore Other Adirondack Towns
+          </Link>
         </div>
       </section>
     </main>

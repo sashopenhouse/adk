@@ -51,21 +51,6 @@ export default function AdirondackPage() {
         );
       });
 
-      // Typewriter effect for subtitle
-      gsap.fromTo(".hero-subtitle", 
-        { opacity: 0 },
-        { 
-          opacity: 1,
-          duration: 0.01,
-          delay: 1.5,
-          text: {
-            value: "Windows, Doors, Siding & Bathroom Remodels",
-            delimiter: ""
-          },
-          ease: "none"
-        }
-      );
-
       // Floating logo animation
       gsap.to('.floating-logo', {
         y: -10,
@@ -138,6 +123,22 @@ export default function AdirondackPage() {
             trigger: contentRef.current,
             start: "top 85%",
             end: "bottom 20%"
+          }
+        }
+      );
+
+      // Simple fade-in animations
+      gsap.fromTo(".fade-in-text", 
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".fade-in-text",
+            start: "top 85%",
+            toggleActions: "play none none reverse"
           }
         }
       );
@@ -515,22 +516,6 @@ export default function AdirondackPage() {
         ref={heroRef}
         className="relative h-screen flex items-center justify-center overflow-hidden bg-linear-to-br from-emerald-800 via-emerald-600 to-emerald-400 adk-hero-bg"
       >
-        {/* Background Particles */}
-        <div className="absolute inset-0 opacity-30">
-          {Array.from({length: 20}, (_, i) => (
-            <div 
-              key={i}
-              className="absolute w-2 h-2 bg-warm-tan rounded-full animate-pulse"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
-                animationDuration: `${2 + Math.random() * 3}s`
-              }}
-            />
-          ))}
-        </div>
-        
         {/* Stronger overlay for text visibility */}
         <div className="absolute inset-0 bg-linear-to-b from-charcoal/40 via-charcoal/50 to-charcoal/70" />
         <div className="absolute inset-0 bg-gradient-radial from-transparent via-charcoal/20 to-charcoal/40" />
@@ -551,8 +536,6 @@ export default function AdirondackPage() {
             <span className="hero-word-1 inline-block mr-4" style={{transformOrigin: '50% 50% -30px'}}>the</span>
             <span className="hero-word-2 inline-block" style={{transformOrigin: '50% 50% -30px'}}>Adirondacks</span>
           </h1>
-          
-          <p className="hero-subtitle text-2xl md:text-4xl text-warm-tan font-light tracking-wide mb-8" style={{textShadow: '0 0 20px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.8)'}}></p>
           
           <p className="body-serif text-xl md:text-2xl text-creamy-white max-w-3xl mx-auto mb-12" style={{textShadow: '0 0 15px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.8)'}}>
             Bringing 35+ years of trusted expertise to the Adirondacks. Quality windows, one-day bathroom remodels, premium siding, and durable doors - all backed by our lifetime warranty.
@@ -575,10 +558,10 @@ export default function AdirondackPage() {
       <section ref={townGridRef} className="py-24 px-6 bg-oatmeal">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="heading-primary text-5xl md:text-6xl text-charcoal mb-6">
+            <h2 className="fade-in-text heading-primary text-5xl md:text-6xl text-charcoal mb-6">
               Towns We Serve
             </h2>
-            <p className="body-serif text-xl text-soft-gray max-w-3xl mx-auto">
+            <p className="fade-in-text body-serif text-xl text-soft-gray max-w-3xl mx-auto">
               From Central New York to the heart of the Adirondacks, New York Sash brings factory-trained professionals and lifetime warranties to every project in Boonville, Old Forge, Inlet, and Eagle Bay.
             </p>
           </div>
@@ -606,12 +589,12 @@ export default function AdirondackPage() {
                     />
                     
                     <div className="town-content relative z-20 p-8 h-full flex flex-col justify-end">
-                      <h3 className="heading-primary text-4xl text-creamy-white mb-4" style={{textShadow: '0 0 20px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.8), 0 4px 15px rgba(0,0,0,0.7)'}}>
+                      <h3 className="fade-in-text heading-primary text-4xl text-creamy-white mb-4" style={{textShadow: '0 0 20px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.8), 0 4px 15px rgba(0,0,0,0.7)'}}>
                         {town.name}
                       </h3>
                       
                       <div className="flex items-center text-accent-gold transition-colors duration-500">
-                        <span className="body-sans font-bold text-lg" style={{textShadow: '0 0 10px rgba(0,0,0,0.9), 0 2px 6px rgba(0,0,0,0.8)'}}>Learn More →</span>
+                        <span className="fade-in-text body-sans font-bold text-lg" style={{textShadow: '0 0 10px rgba(0,0,0,0.9), 0 2px 6px rgba(0,0,0,0.8)'}}>Learn More →</span>
                       </div>
                     </div>
                   </div>
@@ -627,11 +610,11 @@ export default function AdirondackPage() {
         <div className="parallax-bg absolute inset-0 bg-gradient-to-b from-white/5 to-emerald-50/20 -z-10" />
         <div className="max-w-6xl mx-auto">
           <div className="content-section text-center mb-20">
-            <h2 className="section-header heading-primary text-5xl md:text-6xl text-charcoal mb-8">
+            <h2 className="fade-in-text section-header heading-primary text-5xl md:text-6xl text-charcoal mb-8">
               Why Choose New York Sash for Your Adirondack Home?
               <div className="header-underline h-1 bg-gradient-to-r from-warm-tan to-accent-gold mx-auto mt-4 rounded-full w-24"></div>
             </h2>
-            <p className="scroll-text body-serif text-xl text-soft-gray max-w-4xl mx-auto leading-relaxed">
+            <p className="fade-in-text body-serif text-xl text-soft-gray max-w-4xl mx-auto leading-relaxed">
               For over 35 years, we&apos;ve been Central New York&apos;s trusted home improvement company. 
               Now we&apos;re bringing our proven expertise, lifetime warranties, and factory-trained installers 
               to the unique challenges and beauty of Adirondack living.
@@ -644,8 +627,8 @@ export default function AdirondackPage() {
                 <span ref={el => el && (numberRefs.current[0] = el)} className="text-4xl font-bold text-warm-tan" data-target="35" style={{ lineHeight: 1, marginTop: '-15px' }}>35</span>
                 <span className="text-4xl font-bold text-warm-tan" style={{ lineHeight: 1, marginTop: '-15px' }}>+</span>
               </div>
-              <h3 className="scroll-heading heading-primary text-2xl text-charcoal mb-4">Years Experience</h3>
-              <p className="scroll-text body-serif text-soft-gray">
+              <h3 className="fade-in-text scroll-heading heading-primary text-2xl text-charcoal mb-4">Years Experience</h3>
+              <p className="fade-in-text body-serif text-soft-gray">
                 Since 1989, we&apos;ve been perfecting our craft. Our factory-trained installers 
                 understand both Central NY winters and Adirondack mountain conditions.
               </p>
@@ -655,8 +638,8 @@ export default function AdirondackPage() {
               <div className="feature-icon floating-icon w-24 h-24 bg-warm-tan/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-5xl font-bold text-warm-tan" style={{ lineHeight: 1, marginTop: '-4px' }}>∞</span>
               </div>
-              <h3 className="scroll-heading heading-primary text-2xl text-charcoal mb-4">Lifetime Warranty</h3>
-              <p className="scroll-text body-serif text-soft-gray">
+              <h3 className="fade-in-text scroll-heading heading-primary text-2xl text-charcoal mb-4">Lifetime Warranty</h3>
+              <p className="fade-in-text body-serif text-soft-gray">
                 Every window, bathroom, siding project, and door installation is backed by 
                 our comprehensive lifetime warranty - parts AND labor.
               </p>
@@ -666,43 +649,12 @@ export default function AdirondackPage() {
               <div className="feature-icon floating-icon w-24 h-24 bg-warm-tan/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-4xl font-bold text-warm-tan" style={{ lineHeight: 1 }}>★</span>
               </div>
-              <h3 className="scroll-heading heading-primary text-2xl text-charcoal mb-4">In-House Installers</h3>
-              <p className="scroll-text body-serif text-soft-gray">
+              <h3 className="fade-in-text scroll-heading heading-primary text-2xl text-charcoal mb-4">In-House Installers</h3>
+              <p className="fade-in-text body-serif text-soft-gray">
                 No subcontractors, ever. Our own factory-trained professionals handle every 
                 installation with the care and precision your Adirondack home deserves.
               </p>
             </div>
-          </div>
-
-          <div className="cta-section content-section bg-oatmeal rounded-lg p-12 text-center image-reveal">
-            <div className="progress-container mb-8">
-              <div className="progress-bar h-1 bg-gradient-to-r from-warm-tan to-accent-gold rounded-full"></div>
-            </div>
-            
-            <h3 className="section-header heading-primary text-3xl text-charcoal mb-6">
-              Ready to Transform Your Adirondack Home?
-              <div className="header-underline h-1 bg-gradient-to-r from-warm-tan to-accent-gold mx-auto mt-3 rounded-full w-16"></div>
-            </h3>
-            <p className="scroll-text body-serif text-xl text-soft-gray mb-8 max-w-3xl mx-auto">
-              From energy-efficient windows to one-day bathroom makeovers, premium siding to beautiful doors - 
-              New York Sash brings trusted quality to the Adirondacks.
-            </p>
-            
-            <div className="decorative-element absolute top-4 left-4 opacity-20">
-              <span className="text-6xl">🏔️</span>
-            </div>
-            <div className="decorative-element absolute top-4 right-4 opacity-20">
-              <span className="text-6xl">🌲</span>
-            </div>
-            
-            <a 
-              href="https://www.newyorksash.com/quote"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="reveal-button magnetic-button bg-charcoal hover:bg-warm-tan text-creamy-white hover:text-charcoal px-8 py-4 body-sans font-medium tracking-wide transition-all duration-300 hover:scale-105 rounded-lg"
-            >
-              Get Your Free Estimate
-            </a>
           </div>
         </div>
       </section>
