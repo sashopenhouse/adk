@@ -1,5 +1,35 @@
 import React from 'react';
 import TownTemplate from '@/components/TownTemplate';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Eagle Bay Window, Bathroom, Siding & Door Services',
+  description:
+    'Eagle Bay home improvement by New York Sash: windows, one-day bathroom remodels, siding, and doors for remote and wilderness properties.',
+  alternates: {
+    canonical: '/adk/eagle-bay',
+  },
+  openGraph: {
+    title: 'Eagle Bay Home Improvement Services | New York Sash',
+    description:
+      'Reliable windows, bathrooms, siding, and doors in Eagle Bay, NY with lifetime warranty coverage.',
+    url: '/adk/eagle-bay',
+    images: [
+      {
+        url: '/images/AdobeStock_440321067.jpeg',
+        width: 1200,
+        height: 630,
+        alt: 'Eagle Bay home improvement services by New York Sash',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Eagle Bay Home Improvement Services | New York Sash',
+    description: 'Windows, bathrooms, siding, and doors in Eagle Bay, NY.',
+    images: ['/images/AdobeStock_440321067.jpeg'],
+  },
+};
 
 export default function EagleBayPage() {
   const eagleBayData = {

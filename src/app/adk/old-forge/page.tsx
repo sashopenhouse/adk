@@ -1,5 +1,35 @@
 import React from 'react';
 import TownTemplate from '@/components/TownTemplate';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Old Forge Window, Bathroom, Siding & Door Services',
+  description:
+    'Old Forge home improvement by New York Sash: replacement windows, one-day bathroom remodels, siding, and doors for lakefront and mountain homes.',
+  alternates: {
+    canonical: '/adk/old-forge',
+  },
+  openGraph: {
+    title: 'Old Forge Home Improvement Services | New York Sash',
+    description:
+      'Windows, bathrooms, siding, and doors in Old Forge with trusted installation and lifetime warranty.',
+    url: '/adk/old-forge',
+    images: [
+      {
+        url: '/images/AdobeStock_342902991.jpeg',
+        width: 1200,
+        height: 630,
+        alt: 'Old Forge home improvement services by New York Sash',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Old Forge Home Improvement Services | New York Sash',
+    description: 'Windows, bathrooms, siding, and doors in Old Forge, NY.',
+    images: ['/images/AdobeStock_342902991.jpeg'],
+  },
+};
 
 export default function OldForgePage() {
   const oldForgeData = {

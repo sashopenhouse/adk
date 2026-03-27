@@ -1,5 +1,35 @@
 import React from 'react';
 import TownTemplate from '@/components/TownTemplate';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Boonville Window, Bathroom, Siding & Door Services',
+  description:
+    'Home improvement in Boonville, NY from New York Sash: replacement windows, one-day bathroom remodels, siding, and doors with a lifetime warranty.',
+  alternates: {
+    canonical: '/adk/boonville',
+  },
+  openGraph: {
+    title: 'Boonville Home Improvement Services | New York Sash',
+    description:
+      'Trusted Boonville services for windows, bathrooms, siding, and doors by New York Sash.',
+    url: '/adk/boonville',
+    images: [
+      {
+        url: '/images/AdobeStock_301479907.jpeg',
+        width: 1200,
+        height: 630,
+        alt: 'Boonville home improvement services by New York Sash',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Boonville Home Improvement Services | New York Sash',
+    description: 'Windows, bathrooms, siding, and doors in Boonville, NY.',
+    images: ['/images/AdobeStock_301479907.jpeg'],
+  },
+};
 
 export default function BoonvillePage() {
   const boonvilleData = {

@@ -1,5 +1,35 @@
 import React from 'react';
 import TownTemplate from '@/components/TownTemplate';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Inlet Window, Bathroom, Siding & Door Services',
+  description:
+    'Inlet home improvement services from New York Sash: windows, one-day bathroom remodels, siding, and doors for lakefront properties.',
+  alternates: {
+    canonical: '/adk/inlet',
+  },
+  openGraph: {
+    title: 'Inlet Home Improvement Services | New York Sash',
+    description:
+      'Premium windows, bathrooms, siding, and doors in Inlet, NY by New York Sash.',
+    url: '/adk/inlet',
+    images: [
+      {
+        url: '/images/AdobeStock_364798487.jpeg',
+        width: 1200,
+        height: 630,
+        alt: 'Inlet home improvement services by New York Sash',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Inlet Home Improvement Services | New York Sash',
+    description: 'Windows, bathrooms, siding, and doors in Inlet, NY.',
+    images: ['/images/AdobeStock_364798487.jpeg'],
+  },
+};
 
 export default function InletPage() {
   const inletData = {

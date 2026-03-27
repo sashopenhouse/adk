@@ -3,6 +3,10 @@ import { Playfair_Display, Cormorant_Garamond } from "next/font/google";
 import GlobalFooter from "@/components/GlobalFooter";
 import "./globals.css";
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+
 const playfairDisplay = Playfair_Display({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
@@ -18,15 +22,56 @@ const cormorantGaramond = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "New York Sash - Your Adirondack Home Improvement Specialists | Windows, Bathrooms, Siding & Doors",
-  description: "New York Sash expands to the Adirondacks! Trusted for 35+ years for windows, one-day bathroom remodels, premium siding, and quality doors. Lifetime warranty included.",
-  keywords: "New York Sash, Adirondack windows, bathroom remodel, siding installation, door replacement, Boonville, Old Forge, Inlet, Eagle Bay",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "New York Sash | Adirondack Home Improvement Specialists",
+    template: "%s | New York Sash Adirondacks",
+  },
+  description:
+    "Trusted for 35+ years in windows, one-day bathroom remodels, premium siding, and doors across the Adirondacks, including Boonville, Old Forge, Inlet, and Eagle Bay.",
+  keywords: [
+    "New York Sash",
+    "Adirondack home improvement",
+    "replacement windows Adirondacks",
+    "bathroom remodel Adirondacks",
+    "siding installation Adirondacks",
+    "door replacement Adirondacks",
+    "Boonville",
+    "Old Forge",
+    "Inlet",
+    "Eagle Bay",
+  ],
   authors: [{ name: "New York Sash" }],
+  alternates: {
+    canonical: "/adk",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
-    title: "New York Sash - Your Adirondack Home Improvement Specialists",
-    description: "Bringing 35+ years of trusted home improvement expertise to the Adirondack region",
+    title: "New York Sash | Adirondack Home Improvement Specialists",
+    description:
+      "Bringing 35+ years of trusted home improvement expertise to Adirondack homeowners.",
+    url: "/adk",
+    siteName: "New York Sash",
+    images: [
+      {
+        url: "/images/adk-landscape-hero-original.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Adirondack landscape with New York Sash home improvement services",
+      },
+    ],
     type: "website",
     locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "New York Sash | Adirondack Home Improvement Specialists",
+    description:
+      "Windows, bathrooms, siding, and doors for Adirondack homes with a lifetime warranty.",
+    images: ["/images/adk-landscape-hero-original.jpg"],
   },
 };
 

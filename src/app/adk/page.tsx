@@ -13,7 +13,7 @@ export default function AdirondackPage() {
   const townGridRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const paralRefsRef = useRef<HTMLDivElement>(null);
-  const numberRefs = useRef<HTMLDivElement[]>([]);
+  const numberRefs = useRef<HTMLSpanElement[]>([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -624,7 +624,18 @@ export default function AdirondackPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
             <div className="content-section text-center">
               <div className="feature-icon floating-icon w-24 h-24 bg-warm-tan/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span ref={el => el && (numberRefs.current[0] = el)} className="text-4xl font-bold text-warm-tan" data-target="35" style={{ lineHeight: 1, marginTop: '-15px' }}>35</span>
+                <span
+                  ref={(el) => {
+                    if (el) {
+                      numberRefs.current[0] = el;
+                    }
+                  }}
+                  className="text-4xl font-bold text-warm-tan"
+                  data-target="35"
+                  style={{ lineHeight: 1, marginTop: '-15px' }}
+                >
+                  35
+                </span>
                 <span className="text-4xl font-bold text-warm-tan" style={{ lineHeight: 1, marginTop: '-15px' }}>+</span>
               </div>
               <h3 className="fade-in-text scroll-heading heading-primary text-2xl text-charcoal mb-4">Years Experience</h3>
