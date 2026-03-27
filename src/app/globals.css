@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+:root {
+  /* Modern Farmhouse Color Palette */
+  --warm-tan: #D2B48C;
+  --creamy-white: #FDFBF7;
+  --oatmeal: #F5F1E8;
+  --charcoal: #333333;
+  --soft-gray: #8B8680;
+  --accent-gold: #C9A876;
+  
+  /* Semantic Colors */
+  --background: var(--creamy-white);
+  --foreground: var(--charcoal);
+  --muted: var(--soft-gray);
+  --accent: var(--warm-tan);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-warm-tan: #D2B48C;
+  --color-creamy-white: #FDFBF7;
+  --color-oatmeal: #F5F1E8;
+  --color-charcoal: #333333;
+  --color-soft-gray: #8B8680;
+  --color-accent-gold: #C9A876;
+  --font-serif: 'Playfair Display', serif;
+  --font-serif-alt: 'Cormorant Garamond', serif;
+  --font-sans: system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-serif-alt);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* High-end typography classes */
+.heading-display {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.heading-primary {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.body-serif {
+  font-family: var(--font-serif-alt);
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.body-sans {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Hero Background Images with Gradient Fallbacks */
+.adk-hero-bg {
+  background: linear-gradient(135deg, #2d5a27 0%, #4a7c59 50%, #81c995 100%);
+  background-image: linear-gradient(rgba(51, 51, 51, 0.4), rgba(210, 180, 140, 0.3)), url('/images/AdobeStock_47592421.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.boonville-hero-bg {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #93c5fd 100%);
+  background-size: cover;
+  background-position: center;
+}
+
+.old-forge-hero-bg {
+  background: linear-gradient(135deg, #059669 0%, #10b981 50%, #6ee7b7 100%);
+  background-size: cover;
+  background-position: center;
+}
+
+.inlet-hero-bg {
+  background: linear-gradient(135deg, #7c2d12 0%, #ea580c 50%, #fed7aa 100%);
+  background-size: cover;
+  background-position: center;
+}
+
+.eagle-bay-hero-bg {
+  background: linear-gradient(135deg, #374151 0%, #6b7280 50%, #d1d5db 100%);
+  background-size: cover;
+  background-position: center;
+}
+
+/* Town Card Image Placeholders */
+.town-card-placeholder {
+  background: linear-gradient(135deg, var(--warm-tan) 0%, var(--accent-gold) 50%, var(--oatmeal) 100%);
+}
