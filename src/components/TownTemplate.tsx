@@ -217,7 +217,7 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
                   {/* Icon header */}
                   <div className="flex items-center mb-6">
                     <div className="w-12 h-12 bg-warm-tan/10 rounded-full flex items-center justify-center mr-4">
-                      <span className="text-2xl text-warm-tan" style={{ lineHeight: 1 }}>★</span>
+                      <span className="text-2xl text-warm-tan font-bold" style={{ lineHeight: 1 }}>✓</span>
                     </div>
                     <div className="flex-1">
                       <h3 className="heading-primary text-2xl text-charcoal mb-1">
@@ -265,8 +265,8 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
                 <div key={index} className="success-card text-center bg-oatmeal p-8 rounded-lg">
                   {/* Icon for local features */}
                   <div className="w-16 h-16 bg-warm-tan/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <span className="text-3xl text-warm-tan" style={{ lineHeight: 1 }}>
-                      {index === 0 ? '🏔️' : index === 1 ? '🌲' : '🏡'}
+                    <span className="text-2xl text-warm-tan font-bold" style={{ lineHeight: 1 }}>
+                      {String(index + 1).padStart(2, '0')}
                     </span>
                   </div>
                   
