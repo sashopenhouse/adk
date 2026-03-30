@@ -63,7 +63,6 @@ export const metadata: Metadata = {
   verification: {
     google: "your-google-site-verification",
   },
-  },
   openGraph: {
     title: "New York Sash | Adirondack Property Protection Specialists",
     description:
