@@ -538,7 +538,7 @@ export default function AdirondackPage() {
           </h1>
           
           <p className="body-serif text-xl md:text-2xl text-creamy-white max-w-3xl mx-auto mb-12" style={{textShadow: '0 0 15px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.8)'}}>
-            Bringing 35+ years of trusted expertise to the Adirondacks. Quality windows, one-day bathroom remodels, premium siding, and durable doors - all backed by our lifetime warranty.
+            We protect your property year-round, even when you're away.
           </p>
           
           <div className="flex justify-center">
