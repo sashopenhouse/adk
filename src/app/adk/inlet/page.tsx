@@ -34,29 +34,29 @@ export const metadata: Metadata = {
 export default function InletPage() {
   const inletData = {
     name: 'Inlet',
-    tagline: 'Windows • Bathrooms • Siding • Doors',
+    tagline: 'Luxury Property Security Systems',
     heroImage: '/images/AdobeStock_364798487.jpeg',
-    description: 'All New York Sash services available for luxury lakefront properties: windows, bathrooms, siding, and doors with lifetime warranties.',
+    description: 'We protect your luxury lakefront property year-round, even when you\'re away. Premium security: reinforced windows, waterproof bathrooms, protective siding, and high-security doors.',
     highlights: [
       {
-        title: 'Complete Service Portfolio',
-        description: 'Full range of New York Sash services available: energy-efficient windows, one-day bathrooms, premium siding, and beautiful doors.'
+        title: 'Comprehensive Property Defense',
+        description: 'Complete protection portfolio: impact-resistant windows, moisture-sealed bathrooms, storm-grade siding, and security doors - all engineered for luxury standards.'
       },
       {
-        title: 'Luxury Lakefront Focus',
-        description: 'Specialized experience with high-end lakefront properties requiring premium materials and flawless installation.'
+        title: 'Premium Lakefront Security',
+        description: 'Specialized high-end protection systems for luxury properties requiring maximum security, weather resistance, and aesthetic excellence.'
       },
       {
-        title: 'Coordinated Projects',
-        description: 'Seamless project management for whole-home transformations combining multiple New York Sash services.'
+        title: 'Integrated Protection Projects',
+        description: 'Seamless whole-property security upgrades combining all protection systems for ultimate peace of mind during extended absences.'
       }
     ],
     targetContent: {
-      title: 'Inlet: New York Sash\'s Premium Lakefront Showcase',
+      title: 'Inlet: Maximum Protection for Premium Lakefront Investments',
       content: [
-        'Inlet represents the premium market for New York Sash\'s Adirondack expansion, where discerning lakefront property owners demand the highest quality in every aspect of home improvement. Here, we showcase the full range of our capabilities.',
-        'Our Inlet clients often choose comprehensive projects combining energy-efficient replacement windows with stunning lake views, luxurious one-day bathroom remodels, premium siding that complements the natural setting, and elegant entry doors that make a statement.',
-        'Every project in Inlet demonstrates New York Sash\'s commitment to excellence, backed by our lifetime warranty and delivered by our most experienced factory-trained professionals who understand both luxury expectations and lakefront challenges.'
+        'Inlet represents our most sophisticated property protection installations, where luxury lakefront owners demand invisible security that never compromises aesthetics. We create fortress-level defense systems disguised as premium home features.',
+        'Our Inlet clients receive comprehensive property security: impact-resistant windows with lake views, humidity-sealed luxury bathrooms, storm-deflecting premium siding, and reinforced entry doors with smart security features. Every element protects your investment during extended absences.',
+        'Each Inlet installation demonstrates our commitment to invisible protection - maximum security that looks like luxury amenities, backed by lifetime coverage and monitored by our elite protection specialists who understand high-value property vulnerabilities.'
       ]
     },
     successStories: [
@@ -81,17 +81,17 @@ export default function InletPage() {
       {
         title: 'Fulton Chain Access',
         description: 'Inlet serves as a gateway to the famous Fulton Chain of Lakes, attracting boaters and water enthusiasts.',
-        connection: 'Our moisture-resistant materials and finishes are perfect for lakefront properties.'
+        connection: 'Our moisture-defense systems and materials provide complete protection for high-value lakefront properties.'
       },
       {
         title: 'Small Town Charm',
         description: 'This tight-knit community values quality craftsmanship and long-term relationships.',
-        connection: 'Our lifetime warranty and local service commitment fit perfectly with Inlet\'s values.'
+        connection: 'Our lifetime protection guarantee and local security monitoring align with Inlet\'s premium property values.'
       },
       {
         title: 'Seasonal Residents',
         description: 'Many properties are seasonal camps that need to withstand months of vacancy and harsh weather.',
-        connection: 'We design installations that perform reliably even when homes are unoccupied during winter.'
+        connection: 'We design security installations that protect property investments reliably during extended vacancy periods.'
       }
     ]
   };

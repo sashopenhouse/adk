@@ -537,8 +537,13 @@ export default function AdirondackPage() {
             <span className="hero-word-2 inline-block" style={{transformOrigin: '50% 50% -30px'}}>Adirondacks</span>
           </h1>
           
-          <p className="body-serif text-xl md:text-2xl text-creamy-white max-w-3xl mx-auto mb-12" style={{textShadow: '0 0 15px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.8)'}}>
+          <p className="body-serif text-xl md:text-2xl text-creamy-white max-w-3xl mx-auto mb-8" style={{textShadow: '0 0 15px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.8)'}}>
             We protect your property year-round, even when you're away.
+          </p>
+          
+          <p className="body-serif text-lg md:text-xl text-creamy-white/90 max-w-4xl mx-auto mb-12" style={{textShadow: '0 0 10px rgba(0,0,0,0.8)'}}>
+            From weatherproof windows and moisture-resistant siding to secure doors and protected bathrooms, 
+            our 35+ years of expertise ensures your Adirondack retreat stays safe and sound in every season.
           </p>
           
           <div className="flex justify-center">
@@ -562,7 +567,8 @@ export default function AdirondackPage() {
               Towns We Serve
             </h2>
             <p className="fade-in-text body-serif text-xl text-soft-gray max-w-3xl mx-auto">
-              From Central New York to the heart of the Adirondacks, New York Sash brings factory-trained professionals and lifetime warranties to every project in Boonville, Old Forge, Inlet, and Eagle Bay.
+              Protecting Adirondack properties from mountains to lakes. Our factory-trained professionals deliver weatherproof solutions 
+              in Boonville, Old Forge, Inlet, and Eagle Bay - keeping your home secure whether you're there or miles away.
             </p>
           </div>
 
@@ -611,13 +617,13 @@ export default function AdirondackPage() {
         <div className="max-w-6xl mx-auto">
           <div className="content-section text-center mb-20">
             <h2 className="fade-in-text section-header heading-primary text-5xl md:text-6xl text-charcoal mb-8">
-              Why Choose New York Sash for Your Adirondack Home?
+              Total Property Protection for Adirondack Homes
               <div className="header-underline h-1 bg-gradient-to-r from-warm-tan to-accent-gold mx-auto mt-4 rounded-full w-24"></div>
             </h2>
             <p className="fade-in-text body-serif text-xl text-soft-gray max-w-4xl mx-auto leading-relaxed">
-              For over 35 years, we&apos;ve been Central New York&apos;s trusted home improvement company. 
-              Now we&apos;re bringing our proven expertise, lifetime warranties, and factory-trained installers 
-              to the unique challenges and beauty of Adirondack living.
+              Your Adirondack retreat faces unique challenges - from harsh winters to seasonal humidity. 
+              For 35+ years, we've perfected protection systems that safeguard your investment, 
+              whether you're enjoying your getaway or back home in the city.
             </p>
           </div>
 
@@ -638,10 +644,10 @@ export default function AdirondackPage() {
                 </span>
                 <span className="text-4xl font-bold text-warm-tan" style={{ lineHeight: 1, marginTop: '-15px' }}>+</span>
               </div>
-              <h3 className="fade-in-text scroll-heading heading-primary text-2xl text-charcoal mb-4">Years Experience</h3>
+              <h3 className="fade-in-text scroll-heading heading-primary text-2xl text-charcoal mb-4">Years Protecting Properties</h3>
               <p className="fade-in-text body-serif text-soft-gray">
-                Since 1989, we&apos;ve been perfecting our craft. Our factory-trained installers 
-                understand both Central NY winters and Adirondack mountain conditions.
+                Since 1989, we've been safeguarding homes through every season. Our factory-trained installers 
+                understand how to protect your property against Central NY winters and Adirondack extremes.
               </p>
             </div>
 
@@ -649,10 +655,10 @@ export default function AdirondackPage() {
               <div className="feature-icon floating-icon w-24 h-24 bg-warm-tan/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-5xl font-bold text-warm-tan" style={{ lineHeight: 1, marginTop: '-4px' }}>∞</span>
               </div>
-              <h3 className="fade-in-text scroll-heading heading-primary text-2xl text-charcoal mb-4">Lifetime Warranty</h3>
+              <h3 className="fade-in-text scroll-heading heading-primary text-2xl text-charcoal mb-4">Lifetime Protection Promise</h3>
               <p className="fade-in-text body-serif text-soft-gray">
-                Every window, bathroom, siding project, and door installation is backed by 
-                our comprehensive lifetime warranty - parts AND labor.
+                Your peace of mind is guaranteed. Every weatherproofing solution we install comes with 
+                comprehensive lifetime warranty coverage - protecting your investment for years to come.
               </p>
             </div>
 
@@ -660,10 +666,10 @@ export default function AdirondackPage() {
               <div className="feature-icon floating-icon w-24 h-24 bg-warm-tan/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-4xl font-bold text-warm-tan" style={{ lineHeight: 1 }}>★</span>
               </div>
-              <h3 className="fade-in-text scroll-heading heading-primary text-2xl text-charcoal mb-4">In-House Installers</h3>
+              <h3 className="fade-in-text scroll-heading heading-primary text-2xl text-charcoal mb-4">Trusted Protection Team</h3>
               <p className="fade-in-text body-serif text-soft-gray">
-                No subcontractors, ever. Our own factory-trained professionals handle every 
-                installation with the care and precision your Adirondack home deserves.
+                No subcontractors, ever. Our own factory-trained security specialists ensure every 
+                installation creates an impenetrable barrier against the elements year-round.
               </p>
             </div>
           </div>

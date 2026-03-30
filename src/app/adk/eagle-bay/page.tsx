@@ -34,29 +34,29 @@ export const metadata: Metadata = {
 export default function EagleBayPage() {
   const eagleBayData = {
     name: 'Eagle Bay',
-    tagline: 'Full Service Remote Solutions',
+    tagline: 'Wilderness Property Fortress Systems',
     heroImage: '/images/AdobeStock_440321067.jpeg',
-    description: 'Complete New York Sash services: windows, bathrooms, siding, and doors for remote wilderness homes. Specialized installation available.',
+    description: 'We protect your wilderness property year-round, even when you\'re away. Specialized remote defense: reinforced windows, sealed bathrooms, armor-grade siding, and fortress doors.',
     highlights: [
       {
-        title: 'All Services Available Remotely',
-        description: 'Complete New York Sash services: windows, bathrooms, siding, and doors - delivered to any location with specialized logistics.'
+        title: 'Complete Remote Property Defense',
+        description: 'Full protection arsenal: reinforced windows, sealed bathrooms, armor siding, and fortress doors - all designed for extreme isolation security.'
       },
       {
-        title: 'Custom Sizing & Solutions',
-        description: 'Tailored windows, doors, siding, and bathroom solutions designed for unique architectural challenges and remote conditions.'
+        title: 'Custom Wilderness Security Solutions',
+        description: 'Tailored protection systems engineered for unique remote challenges and extreme weather exposure with minimal maintenance access.'
       },
       {
-        title: 'Wilderness Durability',
-        description: 'Products and installations specifically chosen and executed to withstand extreme isolation and weather exposure.'
+        title: 'Maximum Wilderness Durability',
+        description: 'Military-grade products and installations designed to defend remote properties against total isolation, extreme weather, and wildlife exposure.'
       }
     ],
     targetContent: {
-      title: 'Eagle Bay: New York Sash Wilderness Specialists',
+      title: 'Eagle Bay: Ultimate Wilderness Property Protection',
       content: [
-        'Eagle Bay represents New York Sash\'s most challenging and rewarding installations - serving remote wilderness properties that demand both exceptional craftsmanship and innovative logistics. Our specialized teams understand the unique requirements of off-grid and seasonal access properties.',
-        'From custom-sized windows that maximize wilderness views to bathroom remodels completed with helicopter-delivered materials, Eagle Bay projects showcase New York Sash\'s ability to deliver quality anywhere. Our installations must withstand extreme weather with minimal maintenance access.',
-        'Every Eagle Bay project includes enhanced weatherproofing, extended material warranties, and detailed maintenance guidance - because when you\'re miles from the nearest neighbor, New York Sash quality and reliability become even more critical.'
+        'Eagle Bay represents our most extreme property protection challenges - defending remote wilderness investments where failure isn\'t an option. Our specialized fortress teams create impenetrable defense systems that protect properties during months of complete isolation.',
+        'From hurricane-grade windows that defend wilderness views to bathroom sealing systems resistant to freeze-thaw cycles, Eagle Bay installations must function flawlessly with zero maintenance access. Our protection specialists deliver fortress-level security disguised as luxury amenities.',
+        'Every Eagle Bay defense system includes maximum weatherproofing, extended protection warranties, and detailed emergency protocols - because when you\'re hours from civilization, absolute property security becomes survival-critical.'
       ]
     },
     successStories: [
@@ -81,17 +81,17 @@ export default function EagleBayPage() {
       {
         title: 'Great Camp Heritage',
         description: 'Eagle Bay is home to historic Adirondack Great Camps, requiring specialized restoration expertise.',
-        connection: 'We specialize in historic preservation while incorporating modern energy efficiency and comfort.'
+        connection: 'We specialize in protective restoration that preserves historical character while adding fortress-level security and weather defense.'
       },
       {
         title: 'Premier Location',
         description: 'As one of the most exclusive areas in the Adirondacks, Eagle Bay demands the highest quality craftsmanship.',
-        connection: 'Our premium products and meticulous attention to detail match Eagle Bay\'s luxury standards.'
+        connection: 'Our premium protection products and meticulous security details meet Eagle Bay\'s luxury fortress standards.'
       },
       {
         title: 'Natural Splendor',
         description: 'Surrounded by pristine wilderness and crystal-clear lakes, properties here showcase nature\'s beauty.',
-        connection: 'Our windows and design approach maximize natural views while respecting the environment.'
+        connection: 'Our protective windows and security-conscious design maximize natural views while defending against wilderness threats.'
       }
     ]
   };

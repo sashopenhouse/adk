@@ -34,29 +34,29 @@ export const metadata: Metadata = {
 export default function BoonvillePage() {
   const boonvilleData = {
     name: 'Boonville',
-    tagline: 'All New York Sash Services Available',
+    tagline: 'Protecting North Country Properties',
     heroImage: '/images/AdobeStock_301479907.jpeg',
-    description: 'New York Sash brings trusted expertise to North Country living with complete home improvement services: windows, bathrooms, siding, and doors.',
+    description: 'We protect your North Country property year-round, even when you\'re away. Complete weatherproofing services: windows, bathrooms, siding, and doors.',
     highlights: [
       {
-        title: 'Energy-Efficient Windows',
-        description: 'Custom replacement windows designed for North Country winters. Lower energy costs and increased comfort.'
+        title: 'Weather-Shield Windows',
+        description: 'Custom replacement windows that protect against North Country winters while lowering energy costs and increasing comfort.'
       },
       {
-        title: 'One-Day Bathroom Remodels',
-        description: 'Transform your bathroom in just one day with our innovative remodeling system. No lengthy construction disruption.'
+        title: 'Moisture-Protected Bathrooms',
+        description: 'Transform your bathroom in one day with moisture-resistant materials that guard against humidity and temperature fluctuations.'
       },
       {
-        title: 'Premium Siding & Quality Doors',
-        description: 'Complete exterior solutions including vinyl siding and energy-efficient doors for North Country homes.'
+        title: 'Armor-Grade Siding & Secure Doors',
+        description: 'Premium exterior protection systems including impact-resistant siding and security doors designed for North Country conditions.'
       }
     ],
     targetContent: {
-      title: 'Boonville: New York Sash\'s North Country Expansion',
+      title: 'Boonville: Your First Line of Defense Against Adirondack Elements',
       content: [
-        'Boonville serves as New York Sash\'s gateway into the Adirondacks, bringing our complete range of services to this historic North Country community. We provide windows, bathroom remodels, siding, and doors - all backed by 35+ years of expertise.',
-        'Our factory-trained installers understand the unique challenges of North Country living and can help with any home improvement need. From energy-efficient windows and one-day bathroom remodels to durable siding and quality doors.',
-        'Every New York Sash installation comes with our lifetime warranty on both parts and labor - because when you\'re dealing with North Country weather, you need comprehensive service you can trust for life.'
+        'As your gateway to the Adirondacks, Boonville properties face unique protection challenges. We safeguard your investment with comprehensive weatherproofing: windows that seal out winter winds, bathrooms protected from seasonal humidity, and exterior barriers that defend against ice, snow, and summer storms.',
+        'Our factory-trained protection specialists understand that North Country homes need more than standard installation - they need fortress-level defense systems. Whether you\'re away for the season or just at work, your property stays secure against the elements.',
+        'Every protection system we install comes with our lifetime warranty because when you\'re defending against Adirondack weather patterns, you need guaranteed coverage that lasts as long as your property ownership.'
       ]
     },
     successStories: [
@@ -81,17 +81,17 @@ export default function BoonvillePage() {
       {
         title: 'North Country Gateway',
         description: 'Boonville sits at the perfect crossroads - close enough to Utica for convenience, but surrounded by Adirondack beauty.',
-        connection: 'We understand homes that need to handle both suburban comfort and mountain weather.'
+        connection: 'We design protection systems that secure homes during both occupied and unoccupied periods.'
       },
       {
         title: 'Four-Season Living',
         description: 'From summer festivals to winter sports, Boonville residents live actively year-round in challenging weather.',
-        connection: 'Our windows and doors are built to handle temperature swings from -20°F to 90°F.'
+        connection: 'Our weatherproofing systems are engineered to protect your property through extreme temperature swings from -20°F to 90°F.'
       },
       {
         title: 'Historic Character',
         description: 'Many Boonville homes have incredible character and architectural details worth preserving.',
-        connection: 'We specialize in updating historic homes while maintaining their original charm and character.'
+        connection: 'We specialize in protective upgrades that preserve character while adding modern security and weather resistance.'
       }
     ]
   };

@@ -34,29 +34,29 @@ export const metadata: Metadata = {
 export default function OldForgePage() {
   const oldForgeData = {
     name: 'Old Forge',
-    tagline: 'Complete Home Improvement Services',
+    tagline: 'Lakefront Property Protection',
     heroImage: '/images/AdobeStock_342902991.jpeg',
-    description: 'Full range of New York Sash services: windows, bathrooms, siding, and doors designed for lakefront and mountain living.',
+    description: 'We protect your lakefront property year-round, even when you\'re away. Comprehensive security: weather-resistant windows, moisture-proof bathrooms, protective siding, and secure doors.',
     highlights: [
       {
-        title: 'Complete Window Services',
-        description: 'Energy-efficient replacement windows designed for lakefront living. Reduce heating costs and enhance views.'
+        title: 'Lakefront Window Protection',
+        description: 'Energy-efficient replacement windows with advanced weather sealing designed to protect lakefront properties while enhancing views.'
       },
       {
-        title: 'One-Day Bathroom Remodels',
-        description: 'Transform your lakefront bathroom in just one day. Perfect for vacation homes and permanent residences.'
+        title: 'Humidity-Resistant Bathrooms',
+        description: 'One-day bathroom installations using moisture-barrier technology perfect for lakefront humidity and vacation home use.'
       },
       {
-        title: 'Siding & Door Solutions',
-        description: 'Premium siding and energy-efficient doors built to withstand mountain weather and lakefront conditions.'
+        title: 'Storm-Proof Exterior Systems',
+        description: 'Premium siding and reinforced doors engineered to withstand mountain weather, lake effect storms, and seasonal property abandonment.'
       }
     ],
     targetContent: {
-      title: 'Old Forge: Complete New York Sash Services',
+      title: 'Old Forge: Defending Your Adirondack Recreation Investment',
       content: [
-        'Old Forge\'s position as the heart of Adirondack recreation creates unique challenges for homeowners. New York Sash brings our complete range of services - windows, bathrooms, siding, and doors - to handle the specific demands of lakefront and mountain properties.',
-        'Whether you need energy-efficient windows with stunning lake views, a one-day bathroom remodel for your vacation home, weather-resistant siding, or durable doors that can handle heavy seasonal use, New York Sash has the expertise and products for Old Forge living.',
-        'Every New York Sash installation comes with our comprehensive lifetime warranty, giving Old Forge property owners confidence that all their home improvement needs are covered for decades to come.'
+        'Old Forge\'s position as the heart of Adirondack recreation means your property faces unique exposure - from heavy seasonal use to extended vacancy periods. We create comprehensive protection systems that safeguard your investment whether you\'re hosting summer guests or your property sits empty through winter.',
+        'Our lakefront security specialists install windows that resist ice damage, bathrooms sealed against humidity extremes, siding that deflects mountain storms, and doors that maintain security during off-season months. Every system works together to protect your property 24/7.',
+        'With our lifetime protection guarantee, Old Forge property owners gain peace of mind knowing their recreational retreat is defended against every seasonal challenge the Adirondacks can deliver.'
       ]
     },
     successStories: [
@@ -81,17 +81,17 @@ export default function OldForgePage() {
       {
         title: 'Tourist Town Living',
         description: 'Old Forge balances year-round residents with seasonal visitors, creating unique home improvement needs.',
-        connection: 'We design solutions that work for both daily living and entertaining guests.'
+        connection: 'We design protection solutions that secure homes for both daily residents and visiting guests.'
       },
       {
         title: 'Extreme Weather',
         description: 'From summer heat to some of New York\'s coldest winters, Old Forge sees it all.',
-        connection: 'Our products are tested for temperature extremes - perfect for Adirondack conditions.'
+        connection: 'Our protection systems are tested for temperature extremes - defending your property through every Adirondack season.'
       },
       {
         title: 'Lake & Mountain Views',
         description: 'Many homes have stunning natural views that deserve the right windows to frame them.',
-        connection: 'We specialize in maximizing views while maintaining energy efficiency and comfort.'
+        connection: 'We specialize in protective windows that maximize stunning views while maintaining security and energy efficiency.'
       }
     ]
   };
