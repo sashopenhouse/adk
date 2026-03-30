@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: 'Adirondack Property Protection Services | New York Sash',
     description:
       'We protect your property year-round, even when you\'re away. Comprehensive Adirondack property protection services in Boonville, Old Forge, Inlet, and Eagle Bay.',
-    url: '/adk',
+    url: 'https://www.newyorksash-adirondacks.com/adk',
     siteName: 'New York Sash - Adirondack Division',
     images: [
       {

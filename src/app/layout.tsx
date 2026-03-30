@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     title: "New York Sash | Adirondack Property Protection Specialists",
     description:
       "We protect your property year-round, even when you're away. 35+ years protecting Adirondack homes with weatherproof systems, storm barriers, and security installations.",
-    url: "/adk",
+    url: "https://www.newyorksash-adirondacks.com/adk",
     siteName: "New York Sash - Adirondack Property Protection",
     images: [
       {

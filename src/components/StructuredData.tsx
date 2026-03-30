@@ -7,7 +7,7 @@ interface StructuredDataProps {
 }
 
 export default function StructuredData({ type, townName, townSlug }: StructuredDataProps) {
-  const baseUrl = 'https://www.newyorksash.com';
+  const baseUrl = 'https://www.newyorksash-adirondacks.com';
   
   // Local Business Schema
   const localBusinessSchema = {
