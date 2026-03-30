@@ -1,33 +1,48 @@
 import React from 'react';
 import TownTemplate from '@/components/TownTemplate';
+import StructuredData from '@/components/StructuredData';
+import TownFAQSchema from '@/components/TownFAQSchema';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Old Forge Window, Bathroom, Siding & Door Services',
+  title: 'Old Forge Lakefront Property Protection | Adirondack Recreation Security | New York Sash',
   description:
-    'Old Forge home improvement by New York Sash: replacement windows, one-day bathroom remodels, siding, and doors for lakefront and mountain homes.',
+    'Old Forge lakefront property protection - we protect your recreational property year-round, even when you\'re away. Storm-resistant windows, humidity-proof bathrooms, weather siding, reinforced doors. Specialized for Adirondack recreation properties, vacation homes, lake houses. 35+ years expertise, lifetime warranty.',
+  keywords: 'Old Forge property protection, lakefront property security, Adirondack vacation home protection, Old Forge window installation, storm resistant windows, lake house security, weatherproof siding Old Forge, humidity resistant bathrooms, recreational property protection, Fulton Chain security',
   alternates: {
     canonical: '/adk/old-forge',
   },
+  robots: {
+    index: true,
+    follow: true,
+    'max-image-preview': 'large',
+    'max-snippet': -1,
+    'max-video-preview': -1,
+  },
   openGraph: {
-    title: 'Old Forge Home Improvement Services | New York Sash',
+    title: 'Old Forge Lakefront Property Protection | New York Sash Adirondack Recreation Division',
     description:
-      'Windows, bathrooms, siding, and doors in Old Forge with trusted installation and lifetime warranty.',
+      'Protecting recreational properties year-round in Old Forge, NY. Professional lakefront security systems - storm windows, weather siding, reinforced doors.',
     url: '/adk/old-forge',
+    siteName: 'New York Sash - Adirondack Division',
     images: [
       {
         url: '/images/AdobeStock_342902991.jpeg',
         width: 1200,
         height: 630,
-        alt: 'Old Forge home improvement services by New York Sash',
+        alt: 'Old Forge lakefront property protection - storm windows, weather siding, secured doors for vacation homes',
+        type: 'image/jpeg',
       },
     ],
+    locale: 'en_US',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Old Forge Home Improvement Services | New York Sash',
-    description: 'Windows, bathrooms, siding, and doors in Old Forge, NY.',
+    title: 'Old Forge Lakefront Property Protection | New York Sash',
+    description: 'Recreational property protection in Old Forge, NY - storm windows, weather siding, lakefront security systems.',
     images: ['/images/AdobeStock_342902991.jpeg'],
+    creator: '@NewYorkSash',
   },
 };
 
@@ -96,5 +111,11 @@ export default function OldForgePage() {
     ]
   };
 
-  return <TownTemplate townData={oldForgeData} />;
+  return (
+    <>
+      <StructuredData type="townPage" townName="Old Forge" townSlug="old-forge" />
+      <TownFAQSchema townName="Old Forge" townSlug="old-forge" />
+      <TownTemplate townData={oldForgeData} />
+    </>
+  );
 }

@@ -1,33 +1,48 @@
 import React from 'react';
 import TownTemplate from '@/components/TownTemplate';
+import StructuredData from '@/components/StructuredData';
+import TownFAQSchema from '@/components/TownFAQSchema';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Boonville Window, Bathroom, Siding & Door Services',
+  title: 'Boonville Property Protection Services | North Country Security Systems | New York Sash',
   description:
-    'Home improvement in Boonville, NY from New York Sash: replacement windows, one-day bathroom remodels, siding, and doors with a lifetime warranty.',
+    'Boonville property protection services - we protect your North Country property year-round, even when you\'re away. Weatherproof windows, moisture-resistant bathrooms, storm siding, security doors. 35+ years expertise, lifetime warranty. Serving Boonville, NY and surrounding Adirondack gateway communities.',
+  keywords: 'Boonville property protection, North Country property security, Boonville window installation, weatherproof windows Boonville, storm siding Boonville NY, secure doors Boonville, moisture resistant bathrooms, seasonal property protection, Adirondack gateway security, Boonville home improvement',
   alternates: {
     canonical: '/adk/boonville',
   },
+  robots: {
+    index: true,
+    follow: true,
+    'max-image-preview': 'large',
+    'max-snippet': -1,
+    'max-video-preview': -1,
+  },
   openGraph: {
-    title: 'Boonville Home Improvement Services | New York Sash',
+    title: 'Boonville Property Protection Services | New York Sash North Country Division',
     description:
-      'Trusted Boonville services for windows, bathrooms, siding, and doors by New York Sash.',
+      'Protecting North Country properties year-round. Professional weatherproofing services in Boonville, NY - windows, bathrooms, siding, doors with lifetime warranty.',
     url: '/adk/boonville',
+    siteName: 'New York Sash - Adirondack Division',
     images: [
       {
         url: '/images/AdobeStock_301479907.jpeg',
         width: 1200,
         height: 630,
-        alt: 'Boonville home improvement services by New York Sash',
+        alt: 'Boonville property protection services - weatherproof windows, storm siding, secure doors by New York Sash',
+        type: 'image/jpeg',
       },
     ],
+    locale: 'en_US',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Boonville Home Improvement Services | New York Sash',
-    description: 'Windows, bathrooms, siding, and doors in Boonville, NY.',
+    title: 'Boonville Property Protection | New York Sash',
+    description: 'North Country property protection in Boonville, NY - weatherproof windows, storm siding, security systems.',
     images: ['/images/AdobeStock_301479907.jpeg'],
+    creator: '@NewYorkSash',
   },
 };
 
@@ -96,5 +111,11 @@ export default function BoonvillePage() {
     ]
   };
 
-  return <TownTemplate townData={boonvilleData} />;
+  return (
+    <>
+      <StructuredData type="townPage" townName="Boonville" townSlug="boonville" />
+      <TownFAQSchema townName="Boonville" townSlug="boonville" />
+      <TownTemplate townData={boonvilleData} />
+    </>
+  );
 }

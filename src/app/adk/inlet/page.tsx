@@ -1,33 +1,48 @@
 import React from 'react';
 import TownTemplate from '@/components/TownTemplate';
+import StructuredData from '@/components/StructuredData';
+import TownFAQSchema from '@/components/TownFAQSchema';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Inlet Window, Bathroom, Siding & Door Services',
+  title: 'Inlet Luxury Lakefront Property Security | Premium Adirondack Protection | New York Sash',
   description:
-    'Inlet home improvement services from New York Sash: windows, one-day bathroom remodels, siding, and doors for lakefront properties.',
+    'Inlet luxury lakefront property security - we protect your premium property year-round, even when you\'re away. Impact-resistant windows, waterproof bathrooms, premium siding, high-security doors. Specialized for luxury Adirondack properties, Fulton Chain estates. 35+ years expertise, lifetime protection guarantee.',
+  keywords: 'Inlet luxury property protection, premium lakefront security, Inlet window installation, impact resistant windows, luxury property security, Fulton Chain property protection, waterproof bathrooms Inlet, premium siding installation, high security doors, Adirondack luxury home protection',
   alternates: {
     canonical: '/adk/inlet',
   },
+  robots: {
+    index: true,
+    follow: true,
+    'max-image-preview': 'large',
+    'max-snippet': -1,
+    'max-video-preview': -1,
+  },
   openGraph: {
-    title: 'Inlet Home Improvement Services | New York Sash',
+    title: 'Inlet Luxury Lakefront Property Security | New York Sash Premium Division',
     description:
-      'Premium windows, bathrooms, siding, and doors in Inlet, NY by New York Sash.',
+      'Protecting luxury properties year-round in Inlet, NY. Premium lakefront security systems - impact windows, waterproof systems, high-security installations.',
     url: '/adk/inlet',
+    siteName: 'New York Sash - Adirondack Division',
     images: [
       {
         url: '/images/AdobeStock_364798487.jpeg',
         width: 1200,
         height: 630,
-        alt: 'Inlet home improvement services by New York Sash',
+        alt: 'Inlet luxury lakefront property security - premium windows, waterproof systems, high-security installations',
+        type: 'image/jpeg',
       },
     ],
+    locale: 'en_US',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Inlet Home Improvement Services | New York Sash',
-    description: 'Windows, bathrooms, siding, and doors in Inlet, NY.',
+    title: 'Inlet Luxury Property Protection | New York Sash',
+    description: 'Premium lakefront property security in Inlet, NY - luxury protection systems, impact windows, high-security installations.',
     images: ['/images/AdobeStock_364798487.jpeg'],
+    creator: '@NewYorkSash',
   },
 };
 
@@ -96,5 +111,11 @@ export default function InletPage() {
     ]
   };
 
-  return <TownTemplate townData={inletData} />;
+  return (
+    <>
+      <StructuredData type="townPage" townName="Inlet" townSlug="inlet" />
+      <TownFAQSchema townName="Inlet" townSlug="inlet" />
+      <TownTemplate townData={inletData} />
+    </>
+  );
 }

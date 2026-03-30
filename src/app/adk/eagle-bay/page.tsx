@@ -1,33 +1,48 @@
 import React from 'react';
 import TownTemplate from '@/components/TownTemplate';
+import StructuredData from '@/components/StructuredData';
+import TownFAQSchema from '@/components/TownFAQSchema';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Eagle Bay Window, Bathroom, Siding & Door Services',
+  title: 'Eagle Bay Wilderness Property Protection | Remote Adirondack Security | New York Sash',
   description:
-    'Eagle Bay home improvement by New York Sash: windows, one-day bathroom remodels, siding, and doors for remote and wilderness properties.',
+    'Eagle Bay wilderness property protection - we protect your remote property year-round, even when you\'re away. Military-grade windows, sealed bathrooms, armor siding, fortress doors. Specialized for remote Adirondack properties, Great Camps, wilderness estates. Helicopter delivery, extreme weather protection, 35+ years expertise.',
+  keywords: 'Eagle Bay property protection, wilderness property security, remote property protection, Great Camp restoration, Eagle Bay window installation, military grade windows, extreme weather protection, fortress doors, wilderness estate security, helicopter delivery installation',
   alternates: {
     canonical: '/adk/eagle-bay',
   },
+  robots: {
+    index: true,
+    follow: true,
+    'max-image-preview': 'large',
+    'max-snippet': -1,
+    'max-video-preview': -1,
+  },
   openGraph: {
-    title: 'Eagle Bay Home Improvement Services | New York Sash',
+    title: 'Eagle Bay Wilderness Property Protection | New York Sash Remote Specialists',
     description:
-      'Reliable windows, bathrooms, siding, and doors in Eagle Bay, NY with lifetime warranty coverage.',
+      'Protecting wilderness properties year-round in Eagle Bay, NY. Specialized remote security systems - military-grade windows, fortress installations, extreme weather protection.',
     url: '/adk/eagle-bay',
+    siteName: 'New York Sash - Adirondack Division',
     images: [
       {
         url: '/images/AdobeStock_440321067.jpeg',
         width: 1200,
         height: 630,
-        alt: 'Eagle Bay home improvement services by New York Sash',
+        alt: 'Eagle Bay wilderness property protection - military-grade windows, fortress systems, extreme weather installations',
+        type: 'image/jpeg',
       },
     ],
+    locale: 'en_US',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Eagle Bay Home Improvement Services | New York Sash',
-    description: 'Windows, bathrooms, siding, and doors in Eagle Bay, NY.',
+    title: 'Eagle Bay Wilderness Property Protection | New York Sash',
+    description: 'Remote wilderness property security in Eagle Bay, NY - military-grade protection, extreme weather systems, fortress installations.',
     images: ['/images/AdobeStock_440321067.jpeg'],
+    creator: '@NewYorkSash',
   },
 };
 
@@ -96,5 +111,11 @@ export default function EagleBayPage() {
     ]
   };
 
-  return <TownTemplate townData={eagleBayData} />;
+  return (
+    <>
+      <StructuredData type="townPage" townName="Eagle Bay" townSlug="eagle-bay" />
+      <TownFAQSchema townName="Eagle Bay" townSlug="eagle-bay" />
+      <TownTemplate townData={eagleBayData} />
+    </>
+  );
 }
