@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      url: `${siteUrl}/adk`,
+      url: `${siteUrl}/`,
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 1,

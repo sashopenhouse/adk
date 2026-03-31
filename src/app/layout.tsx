@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   category: "Home Improvement & Property Protection",
   classification: "Property Protection Services",
   alternates: {
-    canonical: "/adk",
+    canonical: "/",
   },
   robots: {
     index: true,
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     title: "New York Sash | Adirondack Property Protection Specialists",
     description:
       "We protect your property year-round, even when you're away. 35+ years protecting Adirondack homes with weatherproof systems, storm barriers, and security installations.",
-    url: "https://www.newyorksash-adirondacks.com/adk",
+    url: "https://www.newyorksash-adirondacks.com/",
     siteName: "New York Sash - Adirondack Property Protection",
     images: [
       {

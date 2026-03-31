@@ -13,7 +13,7 @@ export default function StructuredData({ type, townName, townSlug }: StructuredD
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": `${baseUrl}/adk#business`,
+    "@id": `${baseUrl}#business`,
     "name": "New York Sash",
     "description": "We protect your property year-round, even when you're away. Professional property protection services for Adirondack homes including weatherproof windows, moisture-resistant siding, secure doors, and protected bathrooms.",
     "url": baseUrl,
@@ -135,7 +135,7 @@ export default function StructuredData({ type, townName, townSlug }: StructuredD
     "name": "Adirondack Property Protection Services",
     "description": "Comprehensive year-round property protection for Adirondack homes. Weatherproof windows, moisture-resistant bathrooms, storm-grade siding, and security doors.",
     "provider": {
-      "@id": `${baseUrl}/adk#business`
+      "@id": `${baseUrl}#business`
     },
     "areaServed": {
       "@type": "State",
@@ -240,7 +240,7 @@ export default function StructuredData({ type, townName, townSlug }: StructuredD
         "@type": "ListItem", 
         "position": 2,
         "name": "Adirondack Services",
-        "item": `${baseUrl}/adk`
+        "item": baseUrl
       },
       {
         "@type": "ListItem",
@@ -258,12 +258,6 @@ export default function StructuredData({ type, townName, townSlug }: StructuredD
         "position": 1,
         "name": "Home", 
         "item": baseUrl
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Adirondack Services",
-        "item": `${baseUrl}/adk`
       }
     ]
   };
