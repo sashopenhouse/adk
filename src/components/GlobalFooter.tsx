@@ -2,6 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { linkifyServices, SERVICE_URLS } from '@/utils/serviceLinks';
+import { trackEvent } from '@/utils/analytics';
 
 export default function GlobalFooter() {
   return (
@@ -13,7 +15,11 @@ export default function GlobalFooter() {
             Ready for Your Adirondack Project?
           </h3>
           <p className="body-serif text-lg text-charcoal/80 mb-8 max-w-2xl mx-auto">
-            Get expert guidance and a free estimate for your windows, bathroom remodel, siding, or door project in the Adirondacks.
+            {linkifyServices(
+              'Get expert guidance and a free estimate for your windows, bathroom remodel, siding, or door project in the Adirondacks.',
+              'footer-cta',
+              'text-charcoal underline decoration-charcoal/40 hover:text-charcoal/80 transition-colors duration-300'
+            )}
           </p>
           
           <a 
@@ -21,6 +27,13 @@ export default function GlobalFooter() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-8 py-4 bg-charcoal text-creamy-white hover:bg-charcoal/90 transition-colors duration-300 rounded body-sans font-medium"
+            onClick={() =>
+              trackEvent('cta_click', {
+                link_text: 'Get Your Free Estimate',
+                link_url: 'https://www.newyorksash.com/quote',
+                link_location: 'footer-cta'
+              })
+            }
           >
             Get Your Free Estimate →
           </a>
@@ -33,18 +46,33 @@ export default function GlobalFooter() {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <h3 className="mb-4">
-              <img
-                src="/images/ny-sash-logo.png"
-                alt="New York Sash"
-                className="h-12 w-auto"
-              />
+              <a
+                href="https://www.newyorksash.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  trackEvent('main_site_link_click', {
+                    link_text: 'New York Sash Logo',
+                    link_url: 'https://www.newyorksash.com',
+                    link_location: 'footer-brand'
+                  })
+                }
+              >
+                <img
+                  src="/images/ny-sash-logo.png"
+                  alt="New York Sash"
+                  className="h-12 w-auto"
+                />
+              </a>
             </h3>
             <p className="text-warm-tan text-sm font-light mb-2">
               Your Adirondack Home Improvement Specialists
             </p>
             <p className="body-serif text-creamy-white/80 mb-6 max-w-md">
-              Bringing 35+ years of trusted expertise to the Adirondacks. Quality windows, 
-              one-day bathrooms, premium siding, and durable doors - all with lifetime warranties.
+              {linkifyServices(
+                'Bringing 35+ years of trusted expertise to the Adirondacks. Quality windows, one-day bathrooms, premium siding, and durable doors - all with lifetime warranties.',
+                'footer-brand'
+              )}
             </p>
             <div className="space-y-3">
               <div className="flex items-center text-creamy-white/80">
@@ -109,11 +137,96 @@ export default function GlobalFooter() {
               Our Services
             </h4>
             <ul className="space-y-2 body-sans text-creamy-white/80">
-              <li>Replacement Windows</li>
-              <li>One-Day Bathroom Remodels</li>
-              <li>Premium Vinyl Siding</li>
-              <li>Entry & Patio Doors</li>
-              <li>Storm Doors</li>
+              <li>
+                <a
+                  href={SERVICE_URLS.windows}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-warm-tan transition-colors duration-300"
+                  onClick={() =>
+                    trackEvent('service_link_click', {
+                      link_text: 'Replacement Windows',
+                      link_url: SERVICE_URLS.windows,
+                      link_location: 'footer-services',
+                      service: 'windows'
+                    })
+                  }
+                >
+                  Replacement Windows
+                </a>
+              </li>
+              <li>
+                <a
+                  href={SERVICE_URLS.bathrooms}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-warm-tan transition-colors duration-300"
+                  onClick={() =>
+                    trackEvent('service_link_click', {
+                      link_text: 'One-Day Bathroom Remodels',
+                      link_url: SERVICE_URLS.bathrooms,
+                      link_location: 'footer-services',
+                      service: 'bathrooms'
+                    })
+                  }
+                >
+                  One-Day Bathroom Remodels
+                </a>
+              </li>
+              <li>
+                <a
+                  href={SERVICE_URLS.siding}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-warm-tan transition-colors duration-300"
+                  onClick={() =>
+                    trackEvent('service_link_click', {
+                      link_text: 'Premium Vinyl Siding',
+                      link_url: SERVICE_URLS.siding,
+                      link_location: 'footer-services',
+                      service: 'siding'
+                    })
+                  }
+                >
+                  Premium Vinyl Siding
+                </a>
+              </li>
+              <li>
+                <a
+                  href={SERVICE_URLS.doors}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-warm-tan transition-colors duration-300"
+                  onClick={() =>
+                    trackEvent('service_link_click', {
+                      link_text: 'Entry & Patio Doors',
+                      link_url: SERVICE_URLS.doors,
+                      link_location: 'footer-services',
+                      service: 'doors'
+                    })
+                  }
+                >
+                  Entry & Patio Doors
+                </a>
+              </li>
+              <li>
+                <a
+                  href={SERVICE_URLS.doors}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-warm-tan transition-colors duration-300"
+                  onClick={() =>
+                    trackEvent('service_link_click', {
+                      link_text: 'Storm Doors',
+                      link_url: SERVICE_URLS.doors,
+                      link_location: 'footer-services',
+                      service: 'doors'
+                    })
+                  }
+                >
+                  Storm Doors
+                </a>
+              </li>
               <li>Lifetime Warranties</li>
             </ul>
           </div>
@@ -133,6 +246,13 @@ export default function GlobalFooter() {
               target="_blank"
               rel="noopener noreferrer"
               className="body-sans text-sm text-creamy-white/60 hover:text-warm-tan transition-colors duration-300"
+              onClick={() =>
+                trackEvent('main_site_link_click', {
+                  link_text: 'Privacy Policy',
+                  link_url: 'https://www.newyorksash.com/privacy',
+                  link_location: 'footer-legal'
+                })
+              }
             >
               Privacy Policy
             </a>
@@ -141,6 +261,13 @@ export default function GlobalFooter() {
               target="_blank"
               rel="noopener noreferrer"
               className="body-sans text-sm text-creamy-white/60 hover:text-warm-tan transition-colors duration-300"
+              onClick={() =>
+                trackEvent('main_site_link_click', {
+                  link_text: 'Terms of Service',
+                  link_url: 'https://www.newyorksash.com/terms',
+                  link_location: 'footer-legal'
+                })
+              }
             >
               Terms of Service
             </a>

@@ -5,6 +5,8 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { TextPlugin } from 'gsap/TextPlugin';
 import Link from 'next/link';
+import { linkifyServices } from '@/utils/serviceLinks';
+import { trackEvent } from '@/utils/analytics';
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
@@ -542,8 +544,10 @@ export default function AdirondackPageClient() {
           </p>
           
           <p className="body-serif text-lg md:text-xl text-creamy-white/90 max-w-4xl mx-auto mb-12" style={{textShadow: '0 0 10px rgba(0,0,0,0.8)'}}>
-            From weatherproof windows and moisture-resistant siding to secure doors and protected bathrooms, 
-            our 35+ years of expertise ensures your Adirondack retreat stays safe and sound in every season.
+            {linkifyServices(
+              'From weatherproof windows and moisture-resistant siding to secure doors and protected bathrooms, our 35+ years of expertise ensures your Adirondack retreat stays safe and sound in every season.',
+              'home-hero'
+            )}
           </p>
           
           <div className="flex justify-center">
@@ -552,6 +556,13 @@ export default function AdirondackPageClient() {
               target="_blank"
               rel="noopener noreferrer"
               className="magnetic-button bg-warm-tan hover:bg-accent-gold text-charcoal px-8 py-4 body-sans font-medium tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-2xl rounded-lg"
+              onClick={() =>
+                trackEvent('cta_click', {
+                  link_text: 'Get Free Estimate',
+                  link_url: 'https://www.newyorksash.com/quote',
+                  link_location: 'home-hero'
+                })
+              }
             >
               Get Free Estimate
             </a>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Playfair_Display, Cormorant_Garamond } from "next/font/google";
 import GlobalFooter from "@/components/GlobalFooter";
 import "./globals.css";
@@ -96,9 +97,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const gaId = process.env.NEXT_PUBLIC_GA4_ID;
+
   return (
     <html lang="en" className={`h-full scroll-smooth ${playfairDisplay.variable} ${cormorantGaramond.variable}`}>
       <body className="min-h-full flex flex-col bg-creamy-white">
+        {gaId ? (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} window.gtag = gtag; gtag('js', new Date()); gtag('config', '${gaId}', { anonymize_ip: true });`}
+            </Script>
+          </>
+        ) : null}
         <main className="flex-1">
           {children}
         </main>

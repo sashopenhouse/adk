@@ -5,6 +5,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { TextPlugin } from 'gsap/TextPlugin';
 import Link from 'next/link';
+import { linkifyServices } from '@/utils/serviceLinks';
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
@@ -340,7 +341,7 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
           </p>
           
           <p className="fade-in-text body-serif text-xl text-creamy-white max-w-3xl mx-auto" style={{textShadow: '0 0 15px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.8)'}}>
-            {townData.description}
+            {linkifyServices(townData.description, `${townData.name.toLowerCase()}-hero`)}
           </p>
         </div>
       </section>
@@ -360,7 +361,7 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
             <div>
               {townData.targetContent.content.map((paragraph, index) => (
                 <p key={index} className="fade-in-text content-highlight body-serif text-lg text-soft-gray mb-6 leading-relaxed">
-                  {paragraph}
+                  {linkifyServices(paragraph, `${townData.name.toLowerCase()}-content`)}
                 </p>
               ))}
             </div>
@@ -371,10 +372,10 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
                   <div key={index} className="content-highlight flex flex-col space-y-4">
                     <div className="feature-icon">
                       <h3 className="fade-in-text scroll-heading heading-primary text-xl text-charcoal mb-2">
-                        {highlight.title}
+                        {linkifyServices(highlight.title, `${townData.name.toLowerCase()}-highlights`)}
                       </h3>
                       <p className="fade-in-text body-serif text-soft-gray">
-                        {highlight.description}
+                        {linkifyServices(highlight.description, `${townData.name.toLowerCase()}-highlights`)}
                       </p>
                     </div>
                   </div>
@@ -415,7 +416,7 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
                         {story.title}
                       </h3>
                       <p className="scroll-text body-sans text-warm-tan font-medium text-sm">
-                        {story.homeowner} • {story.project}
+                        {story.homeowner} • {linkifyServices(story.project, `${townData.name.toLowerCase()}-stories`)}
                       </p>
                     </div>
                   </div>
@@ -425,7 +426,7 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
                   </p>
                   
                   <p className="body-serif text-soft-gray mb-6 leading-relaxed">
-                    {story.description}
+                    {linkifyServices(story.description, `${townData.name.toLowerCase()}-stories`)}
                   </p>
                   
                   {/* Enhanced speech bubble style quote */}
@@ -435,7 +436,7 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
                     <div className="relative">
                       <div className="text-3xl text-warm-tan/30 absolute -top-2 -left-2" style={{ lineHeight: 1 }}>"</div>
                       <p className="body-serif text-charcoal font-medium italic pl-4">
-                        {story.result}
+                        {linkifyServices(story.result, `${townData.name.toLowerCase()}-stories`)}
                       </p>
                       <div className="text-3xl text-warm-tan/30 absolute -bottom-4 -right-2" style={{ lineHeight: 1 }}>"</div>
                     </div>
