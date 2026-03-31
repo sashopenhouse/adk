@@ -52,7 +52,7 @@ export function linkifyServices(
               link_text: match,
               link_url: serviceUrl,
               link_location: location,
-              service: serviceKey
+              service: serviceKey || undefined
             })
           }
         >
