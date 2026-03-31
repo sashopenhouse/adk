@@ -32,8 +32,12 @@ export default function GlobalFooter() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand Section */}
           <div className="lg:col-span-2">
-            <h3 className="heading-primary text-2xl text-warm-tan mb-4">
-              New York Sash
+            <h3 className="mb-4">
+              <img
+                src="/images/ny-sash-logo.png"
+                alt="New York Sash"
+                className="h-12 w-auto"
+              />
             </h3>
             <p className="text-warm-tan text-sm font-light mb-2">
               Your Adirondack Home Improvement Specialists
