@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { TextPlugin } from 'gsap/TextPlugin';
@@ -26,7 +27,7 @@ export default function AdirondackPageClient() {
       );
 
       // Parallax background on scroll
-      gsap.to('.adk-hero-bg', {
+      gsap.to('.adk-hero-image', {
         yPercent: -50,
         ease: "none",
         scrollTrigger: {
@@ -518,6 +519,17 @@ export default function AdirondackPageClient() {
         ref={heroRef}
         className="relative h-screen flex items-center justify-center overflow-hidden bg-linear-to-br from-emerald-800 via-emerald-600 to-emerald-400 adk-hero-bg"
       >
+        <div className="absolute inset-0">
+          <Image
+            src="/images/AdobeStock_47592421.webp"
+            alt="Adirondack mountains landscape"
+            fill
+            priority
+            sizes="100vw"
+            quality={70}
+            className="adk-hero-image object-cover"
+          />
+        </div>
         {/* Stronger overlay for text visibility */}
         <div className="absolute inset-0 bg-linear-to-b from-charcoal/40 via-charcoal/50 to-charcoal/70" />
         <div className="absolute inset-0 bg-gradient-radial from-transparent via-charcoal/20 to-charcoal/40" />
