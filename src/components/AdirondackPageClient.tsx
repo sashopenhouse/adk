@@ -521,7 +521,7 @@ export default function AdirondackPageClient() {
       >
         <div className="absolute inset-0">
           <Image
-            src="/images/AdobeStock_47592421.webp"
+            src="/images/AdobeStock_47592421.avif"
             alt="Adirondack mountains landscape"
             fill
             priority
