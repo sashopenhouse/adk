@@ -28,7 +28,7 @@ export default function AdirondackPageClient() {
 
       // Parallax background on scroll
       gsap.to('.adk-hero-image', {
-        yPercent: -50,
+        yPercent: -20,
         ease: "none",
         scrollTrigger: {
           trigger: heroRef.current,
@@ -527,7 +527,7 @@ export default function AdirondackPageClient() {
             priority
             sizes="100vw"
             quality={70}
-            className="adk-hero-image object-cover"
+            className="adk-hero-image object-cover scale-110"
           />
         </div>
         {/* Stronger overlay for text visibility */}
