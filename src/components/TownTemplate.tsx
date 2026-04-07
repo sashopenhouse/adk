@@ -320,7 +320,7 @@ export default function TownTemplate({ townData }: TownTemplateProps) {
       {/* Hero Section */}
       <section 
         ref={heroRef}
-        className="town-hero-bg relative h-screen flex items-center justify-center overflow-hidden"
+        className="town-hero-bg relative h-[100svh] min-h-[100svh] flex items-center justify-center overflow-hidden"
         style={{
           backgroundImage: `url(${townData.heroImage})`,
           backgroundSize: 'cover',

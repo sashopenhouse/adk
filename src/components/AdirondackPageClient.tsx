@@ -517,7 +517,7 @@ export default function AdirondackPageClient() {
       {/* Hero Section */}
       <section 
         ref={heroRef}
-        className="relative h-screen flex items-center justify-center overflow-hidden bg-linear-to-br from-emerald-800 via-emerald-600 to-emerald-400 adk-hero-bg"
+        className="relative h-[100svh] min-h-[100svh] flex items-center justify-center overflow-hidden bg-linear-to-br from-emerald-800 via-emerald-600 to-emerald-400 adk-hero-bg"
       >
         <div className="absolute inset-0">
           <Image
