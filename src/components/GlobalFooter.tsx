@@ -128,6 +128,22 @@ export default function GlobalFooter() {
                   Eagle Bay
                 </Link>
               </li>
+              <li>
+                <Link 
+                  href="/adk/piseco" 
+                  className="body-sans text-creamy-white/80 hover:text-warm-tan transition-colors duration-300"
+                >
+                  Piseco
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/adk/hinckley" 
+                  className="body-sans text-creamy-white/80 hover:text-warm-tan transition-colors duration-300"
+                >
+                  Hinckley
+                </Link>
+              </li>
             </ul>
           </div>
 

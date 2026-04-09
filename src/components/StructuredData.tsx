@@ -46,6 +46,16 @@ export default function StructuredData({ type, townName, townSlug }: StructuredD
         "@type": "City",
         "name": "Eagle Bay",
         "addressRegion": "NY"
+      },
+      {
+        "@type": "City",
+        "name": "Piseco",
+        "addressRegion": "NY"
+      },
+      {
+        "@type": "City",
+        "name": "Hinckley",
+        "addressRegion": "NY"
       }
     ],
     "serviceArea": {
@@ -156,6 +166,14 @@ export default function StructuredData({ type, townName, townSlug }: StructuredD
         {
           "@type": "City",
           "name": "Eagle Bay"
+        },
+        {
+          "@type": "City",
+          "name": "Piseco"
+        },
+        {
+          "@type": "City",
+          "name": "Hinckley"
         }
       ]
     },
@@ -203,7 +221,7 @@ export default function StructuredData({ type, townName, townSlug }: StructuredD
         "name": "What areas in the Adirondacks do you serve?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We provide property protection services throughout the Adirondack region, including Boonville, Old Forge, Inlet, and Eagle Bay. Our factory-trained specialists understand the unique challenges of Adirondack weather."
+          "text": "We provide property protection services throughout the Adirondack region, including Boonville, Old Forge, Inlet, Eagle Bay, Piseco, and Hinckley. Our factory-trained specialists understand the unique challenges of Adirondack weather."
         }
       },
       {

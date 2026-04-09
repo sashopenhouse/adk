@@ -126,6 +126,66 @@ export default function TownFAQSchema({ townName, townSlug }: TownFAQProps) {
           }
         }
       ]
+    },
+    piseco: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do you work on seasonal homes in Piseco?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We regularly install windows, bathrooms, siding, and doors for seasonal Piseco properties. Our systems are designed to protect homes during both occupied and vacant months."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you protect Piseco homes from mountain weather?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We use weather-sealed windows, moisture-resistant bathroom materials, durable siding, and secure door systems selected for Adirondack temperature swings, wind, and precipitation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do your Piseco installations include warranty coverage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Every installation includes lifetime-backed coverage, giving homeowners long-term confidence in their property protection upgrades."
+          }
+        }
+      ]
+    },
+    hinckley: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What property protection services do you provide in Hinckley?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We provide full-service protection upgrades in Hinckley including replacement windows, bathroom remodel systems, exterior siding, and secure entry doors."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you handle both full-time and seasonal homes in Hinckley?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. We tailor each installation to the property use pattern, ensuring reliable performance for daily occupancy and extended vacancy periods."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do your upgrades help long-term home value?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our products are chosen for durability, comfort, and low maintenance in Adirondack conditions, helping preserve home performance and long-term value."
+          }
+        }
+      ]
     }
   };
 

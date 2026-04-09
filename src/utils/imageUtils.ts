@@ -1,5 +1,5 @@
 // Image placeholder utility
-type TownName = 'boonville' | 'old-forge' | 'inlet' | 'eagle-bay';
+type TownName = 'boonville' | 'old-forge' | 'inlet' | 'eagle-bay' | 'piseco' | 'hinckley';
 
 export const getImageWithFallback = (imagePath: string, town: string) => {
   const placeholders: Record<TownName | 'default', string> = {
@@ -7,6 +7,8 @@ export const getImageWithFallback = (imagePath: string, town: string) => {
     'old-forge': 'linear-gradient(135deg, #059669 0%, #10b981 50%, #6ee7b7 100%)', 
     inlet: 'linear-gradient(135deg, #7c2d12 0%, #ea580c 50%, #fed7aa 100%)',
     'eagle-bay': 'linear-gradient(135deg, #374151 0%, #6b7280 50%, #d1d5db 100%)',
+    piseco: 'linear-gradient(135deg, #115e59 0%, #0d9488 50%, #99f6e4 100%)',
+    hinckley: 'linear-gradient(135deg, #4338ca 0%, #6366f1 50%, #c7d2fe 100%)',
     default: 'linear-gradient(135deg, #D2B48C 0%, #C9A876 50%, #F5F1E8 100%)'
   };
 

@@ -28,11 +28,11 @@ export default function AdirondackPageClient() {
 
       // Parallax background on scroll
       gsap.to('.adk-hero-image', {
-        yPercent: -20,
+        yPercent: -8,
         ease: "none",
         scrollTrigger: {
           trigger: heroRef.current,
-          start: "top bottom",
+          start: "top top",
           end: "bottom top",
           scrub: true
         }
@@ -497,6 +497,20 @@ export default function AdirondackPageClient() {
       tagline: 'Full Service Home Solutions',
       description: 'All New York Sash services available: windows, bathrooms, siding, and doors for wilderness homes.',
       image: '/images/AdobeStock_440321067.jpeg'
+    },
+    {
+      name: 'Piseco',
+      slug: 'piseco',
+      tagline: 'Year-Round Property Protection',
+      description: 'Complete weatherproof solutions for seasonal and full-time homes: windows, bathrooms, siding, and doors.',
+      image: '/images/piseco-image.jpeg'
+    },
+    {
+      name: 'Hinckley',
+      slug: 'hinckley',
+      tagline: 'Four-Season Home Defense',
+      description: 'Durable window, bathroom, siding, and door upgrades built for Adirondack climate and comfort.',
+      image: '/images/hinckley-image.jpeg'
     }
   ];
 
@@ -517,9 +531,9 @@ export default function AdirondackPageClient() {
       {/* Hero Section */}
       <section 
         ref={heroRef}
-        className="relative h-[100svh] min-h-[100svh] flex items-center justify-center overflow-hidden bg-linear-to-br from-emerald-800 via-emerald-600 to-emerald-400 adk-hero-bg"
+        className="relative h-[100svh] min-h-[100svh] flex items-center justify-center overflow-hidden bg-charcoal"
       >
-        <div className="absolute inset-0">
+        <div className="absolute -inset-32">
           <Image
             src="/images/AdobeStock_47592421.avif"
             alt="Adirondack mountains landscape"
@@ -591,7 +605,7 @@ export default function AdirondackPageClient() {
             </h2>
             <p className="fade-in-text body-serif text-xl text-soft-gray max-w-3xl mx-auto">
               Protecting Adirondack properties from mountains to lakes. Our factory-trained professionals deliver weatherproof solutions 
-              in Boonville, Old Forge, Inlet, and Eagle Bay - keeping your home secure whether you're there or miles away.
+              in Boonville, Old Forge, Inlet, Eagle Bay, Piseco, and Hinckley - keeping your home secure whether you're there or miles away.
             </p>
           </div>
 

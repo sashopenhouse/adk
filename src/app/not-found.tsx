@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Page Not Found | New York Sash Adirondack Property Protection',
-  description: 'The page you\'re looking for doesn\'t exist. Explore our Adirondack property protection services in Boonville, Old Forge, Inlet, and Eagle Bay.',
+  description: 'The page you\'re looking for doesn\'t exist. Explore our Adirondack property protection services in Boonville, Old Forge, Inlet, Eagle Bay, Piseco, and Hinckley.',
   robots: {
     index: false,
     follow: true,
