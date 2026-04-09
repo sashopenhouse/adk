@@ -34,6 +34,16 @@
 - **Usage**: Eagle Bay page hero + main page town grid card
 - **Note**: 9.75MB file size
 
+### ✅ **Piseco** (`piseco-image.jpeg`)
+- **Status**: Real photo active and optimized
+- **Usage**: Piseco page hero + main page town grid card
+- **Note**: Optimized to ~547KB for web delivery
+
+### ✅ **Hinckley** (`hinckley-image.jpeg`)
+- **Status**: Real photo active and optimized
+- **Usage**: Hinckley page hero + main page town grid card
+- **Note**: Optimized to ~456KB for web delivery
+
 ### 📄 **Available** (`AdobeStock_629976339.jpeg`)
 - **Status**: Available for future use
 - **Usage**: Could be used for additional content sections
@@ -52,6 +62,7 @@ All images are currently high-resolution (3.65MB - 11.14MB) which may impact loa
 ## 🎯 Current Site Status
 
 ✅ **All placeholders replaced with real photography**  
+✅ **Piseco and Hinckley photos added and optimized**  
 ✅ **Consistent Adobe Stock imagery throughout**  
 ✅ **Professional Adirondack aesthetic maintained**  
 ✅ **All call-to-action buttons link to newyorksash.com/quote**  
