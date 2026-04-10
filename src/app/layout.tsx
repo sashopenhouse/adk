@@ -110,6 +110,7 @@ export default function RootLayout({
           {children}
         </main>
         <GlobalFooter />
+        <Script src="https://sash-board-2-0.vercel.app/nys-track.js" strategy="afterInteractive" />
       </body>
     </html>
   );
