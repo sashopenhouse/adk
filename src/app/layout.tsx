@@ -112,6 +112,12 @@ export default function RootLayout({
         <GlobalFooter />
         <Script src="https://sash-board-2-0.vercel.app/nys-track.js" strategy="afterInteractive" />
       </body>
+      <Script
+        src="https://www.newyorksash.com/tracker.js"
+        data-property="newyorksash-adirondacks.com"
+        data-host="https://www.newyorksash.com"
+        strategy="beforeInteractive"
+      />
     </html>
   );
 }
